@@ -1,0 +1,4 @@
+#!/bin/zsh
+# My development env variables
+
+export NPM_TOKEN="007e65c7-665d-4c54-8895-e360cb8a9e2f"
