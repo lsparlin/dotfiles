@@ -1,0 +1,39 @@
+[push]
+	default = current
+[alias]
+	lg = log -n 10 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	last = log -1 HEAD --name-only
+	lgv = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	diff = diff --color=always
+	ch = checkout
+	m = merge
+	r = remote -v
+	f = fetch
+	st = status
+	b = branch
+	p = push
+	aa = add . --all
+	cm = commit -m
+	lga = log -n 10 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	fa = fetch --all
+	re = rebase
+	remote = remote -v
+	tag = tag -a
+	t = tag -a
+	pullr = pull --rebase
+	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
+	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
+[core]
+	fileMode = false
+	autocrlf = false
+	whitespace = cr-at-eol
+	editor = /usr/bin/vim
+[user]
+	name = Lewis Sparlin
+	email = lewis@edatasource.com
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[credential]
+	helper = osxkeychain
