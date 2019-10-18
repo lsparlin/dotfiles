@@ -7,3 +7,12 @@
 [submodule "tmux"]
 	path = tmux
 	url = https://github.com/gpakosz/.tmux.git
+[submodule "omz-plugins/spaceship-prompt"]
+	path = omz-plugins/spaceship-prompt
+	url = https://github.com/denysdovhan/spaceship-prompt.git
+[submodule "omz-plugins/zsh-autosuggestions"]
+	path = omz-plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "omz-plugins/zsh-history-substring-search"]
+	path = omz-plugins/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search
