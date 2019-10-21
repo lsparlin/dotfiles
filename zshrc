@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-source $HOME/.env_variables # dev env variables
+if [ -f $HOME/.env_variables ]; then 
+  source $HOME/.env_variables # dev env variables
+fi
 NODE_PATH='/usr/local/lib/node_modules'
 GREP_COLOR='1;32'
 
