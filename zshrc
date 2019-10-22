@@ -26,7 +26,7 @@ fi
 ZSH_THEME="spaceship"
 
 # Spaceship-theme prompt on
-SPACESHIP_PROMPT_ORDER=(user dir host git node package ruby xcode exec_time line_sep battery vi_mode jobs char) 
+SPACESHIP_PROMPT_ORDER=(user dir host git exec_time line_sep battery vi_mode jobs char) 
 SPACESHIP_VI_MODE_INSERT="[vi-i]"
 SPACESHIP_VI_MODE_NORMAL="[vi-c]"
 
@@ -69,7 +69,7 @@ KEYTIMEOUT=1
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew osx common-aliases tmux npm vi-mode history-substring-search zsh-autosuggestions docker)
+plugins=(git brew osx common-aliases tmux npm vi-mode history-substring-search zsh-autosuggestions zsh-syntax-highlighting docker)
 
 # history-substring-search = ZSH_CUSTOM/plugins/zsh-history-substring-search (from git)
 bindkey '^[[A' history-substring-search-up
