@@ -86,7 +86,7 @@ export PATH="$HOME/.rbenv/bin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/
 eval "$(rbenv init -)"
 source $ZSH/oh-my-zsh.sh
 
-ulimit -n 1024
+ulimit -n 8192
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -104,6 +104,9 @@ export EDITOR='vim'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 # 
+
+# Java
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 ## --- Functions --- ##
 
