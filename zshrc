@@ -26,7 +26,9 @@ fi
 ZSH_THEME="spaceship"
 
 # Spaceship-theme prompt on
-SPACESHIP_PROMPT_ORDER=(user dir host git exec_time line_sep battery vi_mode jobs char) 
+SPACESHIP_PROMPT_ORDER=(user dir host git_branch exec_time line_sep battery vi_mode jobs char) 
+SPACESHIP_GIT_BRANCH_PREFIX=" "
+SPACESHIP_GIT_BRANCH_SUFFIX=" " 
 SPACESHIP_VI_MODE_INSERT="[vi-i]"
 SPACESHIP_VI_MODE_NORMAL="[vi-c]"
 
@@ -64,6 +66,7 @@ KEYTIMEOUT=1
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -79,7 +82,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 # User configuration
 
-export PATH="$HOME/.rbenv/bin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export PATH="/Users/lsparlin/.rvm/gems/ruby-2.1.5/bin:/Users/lsparlin/.rvm/gems/ruby-2.1.5@global/bin:/Users/lsparlin/.rvm/rubies/ruby-2.1.5/bin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/bin:/Users/lsparlin/.rvm/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -196,7 +199,7 @@ alias flyway-reset='flyway-analyst clean migrate; flyway-dev clean migrate'
 
 # mysql
 alias mysql-eds='mysql -u edsro -pedsRO123 -h aurora01-cluster.cluster-c5anvjpieaue.us-east-1.rds.amazonaws.com'
-alias mysql-localhost='mysql -u root -proot'
+alias mysql-localhost='mysql -u root -p'
 
 ##
 ### ---- Unsorted Aliases

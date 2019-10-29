@@ -7,15 +7,15 @@
 [submodule "tmux"]
 	path = tmux
 	url = https://github.com/gpakosz/.tmux.git
-[submodule "omz-plugins/spaceship-prompt"]
-	path = omz-plugins/spaceship-prompt
+[submodule "zsh-custom/themes/spaceship-prompt"]
+	path = zsh-custom/themes/spaceship-prompt
 	url = https://github.com/denysdovhan/spaceship-prompt.git
-[submodule "omz-plugins/zsh-autosuggestions"]
-	path = omz-plugins/zsh-autosuggestions
+[submodule "zsh-custom/plugins/zsh-autosuggestions"]
+	path = zsh-custom/plugins/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git
-[submodule "omz-plugins/zsh-history-substring-search"]
-	path = omz-plugins/zsh-history-substring-search
+[submodule "zsh-custom/plugins/zsh-history-substring-search"]
+	path = zsh-custom/plugins/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
-[submodule "omz-plugins/zsh-syntax-highlighting"]
-	path = omz-plugins/zsh-syntax-highlighting
+[submodule "zsh-custom/plugins/zsh-syntax-highlighting"]
+	path = zsh-custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
