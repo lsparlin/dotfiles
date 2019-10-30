@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
-ls -l1 $HOME/dotfiles | grep -Ev "backup|link_dotfiles|custom" | xargs -I% ln -vhs $HOME/dotfiles/% $HOME/.%
-ln -vhs $HOME/dotfiles/tmux/.tmux.conf $HOME/.tmux.conf 
-ln -vs $HOME/dotfiles/zsh-custom/themes/spaceship-prompt/spaceship.zsh-theme zsh-custom/themes/
+MY_DOTFILES_DIR=$HOME/dotfiles
+
+ls -l1 $MY_DOTFILES_DIR |\
+  grep -Ev "backup|link_dotfiles|custom" |\
+  xargs -I% ln -vhs $MY_DOTFILES_DIR/% $HOME/.%
+ln -vhs $MY_DOTFILES_DIR/tmux/.tmux.conf $HOME/.tmux.conf 
+ln -vhs $MY_DOTFILES_DIR/zsh-custom/themes/spaceship-prompt/spaceship.zsh $MY_DOTFILES_DIR/zsh-custom/themes/

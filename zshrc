@@ -72,7 +72,7 @@ ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew osx common-aliases tmux npm vi-mode history-substring-search zsh-autosuggestions zsh-syntax-highlighting docker)
+plugins=(git brew osx common-aliases tmux tmuxinator npm vi-mode history-substring-search zsh-autosuggestions zsh-syntax-highlighting docker)
 
 # history-substring-search = ZSH_CUSTOM/plugins/zsh-history-substring-search (from git)
 bindkey '^[[A' history-substring-search-up
@@ -170,7 +170,7 @@ alias git=hub # per hub documentation
 alias gst='git status -s'
 alias mmv='noglob zmv -W'
 alias vit='vi ~/.tmux.conf'
-alias srcp='source ~/.zshrc && echo "\n\e[1m\e[32mSUCCESS: loaded profile ~/.zshrc";'
+alias srcp='exec zsh'
 alias srct='tmux source-file ~/.tmux.conf'
 alias gitrepo='cd ~/Development/git'
 alias cdroot='cd "$(git rev-parse --show-toplevel)"'
@@ -185,6 +185,7 @@ alias spotlight_reset="sudo mdutil -E -a -i on"
 alias tmux_panetitle='tmux set pane-border-status bottom; tmux set pane-border-format "#{pane_current_command}"'
 alias lsl="exa --header --long --group --color=always"
 alias grep="grep --color=auto"
+alias mux="tmuxinator"
 
 alias npm-low="sudo npm install -g npm@4.6.1"  # from Neal
 alias npm-high="sudo npm install -g npm@6.9.0" # from Neal
