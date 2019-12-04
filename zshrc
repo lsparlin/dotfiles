@@ -1,7 +1,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-if [ -f $HOME/.env_variables ]; then 
-  source $HOME/.env_variables # dev env variables
+if [ -f $HOME/.env_variables.zsh ]; then 
+  source $HOME/.env_variables.zsh # dev env variables
+fi
+if [ -f $HOME/.local_scripts.zsh ]; then
+	source $HOME/.local_scripts.zsh 
 fi
 NODE_PATH='/usr/local/lib/node_modules'
 GREP_COLOR='1;32'
@@ -143,19 +146,6 @@ function prevcmd_to_alias() {
 	fi
 
 	prevcmd | xargs -I{} echo "alias $1=\"{}\""
-}
-
-function copyEmojiLewis() {
-  FILE_PREFIX="lewis"
-  if [ "$#" -gt 1 ]; then
-    FILE_PREFIX=$2
-  fi
-  if [ "$#" -lt 1 ]; then
-    pbcopy < "$HOME/parrot/${FILE_PREFIX}_parrot.txt"
-    return 1
-  fi
-
-  sed "s/parrot/$1/g" "$HOME/parrot/${FILE_PREFIX}_parrot.txt" | pbcopy
 }
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
