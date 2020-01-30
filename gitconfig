@@ -30,7 +30,7 @@
 	editor = /usr/bin/vim
 [user]
 	name = Lewis Sparlin
-	email = lewis@edatasource.com
+	email = lewis.sparlin@sparkpost.com
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f

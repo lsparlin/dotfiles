@@ -12,11 +12,6 @@ GREP_COLOR='1;32'
 # Extra ZSH Built-Ins
 autoload -U zmv
 
-# symlink python2 because zsh uses it from /usr/local/opt...
-if [ ! -f /usr/local/opt/python/bin/python2.7 ]; then
-ln -s /usr/local/bin/python2.7 /usr/local/opt/python/bin/python2.7
-fi
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -86,8 +81,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 # User configuration
 
-export PATH="$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-# export PATH="/Users/lsparlin/.rvm/gems/ruby-2.1.5/bin:/Users/lsparlin/.rvm/gems/ruby-2.1.5@global/bin:/Users/lsparlin/.rvm/rubies/ruby-2.1.5/bin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/bin:/Users/lsparlin/.rvm/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 eval "$(rbenv init -)"
@@ -130,7 +124,7 @@ function watchp() {
 		xargs -I% watch -n $WATCH_INT %
 }
 
-function sys_notify() {
+function mac-notify() {
   MESSAGE="[No Message]"
   if [ "$#" -gt 0 ]; then
     MESSAGE=$1
@@ -208,4 +202,3 @@ function gh_open() {
     xargs -I% open "%$(git rev-parse --show-prefix)$1"
 }
 alias gh_prinfo='hub pr list | grep -i $(git rev-parse --abbrev-ref HEAD | sed -E "s/([A-Z]{2})-([[:digit:]]{4})-.*/\1[-[:blank:]]*\2/g")'
-alias christmas_tree="docker pull lsparlin88/christbashtree:latest; docker run -it -e COLUMNS=$COLUMNS lsparlin88/christbashtree:latest"
