@@ -1,1 +1,3 @@
 backup/
+vim/bundle/*
+!vim/bundle/Vudle.vim
