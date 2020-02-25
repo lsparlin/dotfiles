@@ -186,7 +186,6 @@ alias flyway-reset-boxbe='flyway-boxbe clean migrate; flyway-boxbe-dev clean mig
 alias flyway-reset='flyway-analyst clean migrate; flyway-dev clean migrate'
 
 # mysql
-alias mysql-eds='mysql -u edsro -pedsRO123 -h aurora01-cluster.cluster-c5anvjpieaue.us-east-1.rds.amazonaws.com'
 alias mysql-localhost='mysql -u root -p'
 
 # github
