@@ -81,10 +81,11 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 # User configuration
 
-export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 eval "$(rbenv init -)"
+
 source $ZSH/oh-my-zsh.sh
 
 ulimit -n 8192
@@ -107,7 +108,7 @@ export EDITOR='vim'
 # 
 
 # Java
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 ## --- Functions --- ##
 
@@ -176,11 +177,12 @@ alias npm-low="sudo npm install -g npm@4.6.1"  # from Neal
 alias npm-high="sudo npm install -g npm@6.9.0" # from Neal
 
 # flyway
-alias flyway-receipts='flyway -url="jdbc:mysql://127.0.0.1:3306/receipts?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC" -locations="filesystem:/$HOME/Development/git/analyst-ng/source/ext-db/receipts/"'
 alias flyway-analyst='flyway -url="jdbc:mysql://127.0.0.1:3306/analyst?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC" -locations="filesystem:/$HOME/Development/git/analyst-ng/source/ext-db/analyst-ng/" -schemas=analyst,evun'
 alias flyway-boxbe='flyway -url="jdbc:mysql://127.0.0.1:3306/boxbe?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC" -locations="filesystem:/$HOME/Development/git/analyst-ng/boxbe/database/main/"'
 alias flyway-dev='flyway -url="jdbc:mysql://127.0.0.1:3306/analystFlywayDev?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC" -locations="filesystem:/$HOME/Development/git/analyst-ng/source/ext-db/analyst-ng-dev-load/" -schemas='
 alias flyway-boxbe-dev='flyway -url="jdbc:mysql://127.0.0.1:3306/boxbeFlywayDev?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC" -locations="filesystem:/$HOME/Development/git/analyst-ng/boxbe/database/dev-load/"'
+
+alias flyway-reset-boxbe='flyway-boxbe clean migrate; flyway-boxbe-dev clean migrate;'
 alias flyway-reset='flyway-analyst clean migrate; flyway-dev clean migrate'
 
 # mysql
