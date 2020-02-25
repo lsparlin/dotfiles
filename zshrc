@@ -189,18 +189,25 @@ alias flyway-reset='flyway-analyst clean migrate; flyway-dev clean migrate'
 alias mysql-eds='mysql -u edsro -pedsRO123 -h aurora01-cluster.cluster-c5anvjpieaue.us-east-1.rds.amazonaws.com'
 alias mysql-localhost='mysql -u root -p'
 
-##
-### ---- Unsorted Aliases
-##
-alias gh_opendir='git remote get-url upstream | sed -E "s;git@github.com:(.*)/(.*)\.git;https://github.com/\1/\2/tree/develop-analyst/;g" | xargs -I% open "%$(git rev-parse --show-prefix)"'
-function gh_open() {
-  if [ "$#" -lt 1 ]; then
-		echo "Enter filename as parameter!"
+# github
+function gh_open() { # gh_open filename|dir [remote] [branch]
+  if [[ $# -lt 1 ]] || [[ ! -e $1 ]]; then
+		echo "Enter valid filename or directory as parameter!"
 		return 1
 	fi
+	url_path="blob"
+	if [[ -d $1 ]]; then
+		url_path="tree"
+	fi
 
-	git remote get-url upstream | \
-    sed -E 's;git@github.com:(.*)/(.*)\.git;https://github.com/\1/\2/blob/develop-analyst/;g' | \
+	curr_branch=$(git branch --show-current)
+
+	git remote get-url ${2:-origin} | \
+		sed -E "s;git@github.com:(.*)/(.*)\.git;https://github.com/\1/\2/$url_path/${3:-$curr_branch}/;g" | \
     xargs -I% open "%$(git rev-parse --show-prefix)$1"
 }
 alias gh_prinfo='hub pr list | grep -i $(git rev-parse --abbrev-ref HEAD | sed -E "s/([A-Z]{2})-([[:digit:]]{4})-.*/\1[-[:blank:]]*\2/g")'
+
+##
+### ---- Unsorted Aliases
+##
