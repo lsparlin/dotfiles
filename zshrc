@@ -71,7 +71,7 @@ ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew osx common-aliases tmux tmuxinator npm vi-mode history-substring-search zsh-autosuggestions zsh-syntax-highlighting docker)
+plugins=(git brew osx common-aliases tmux tmuxinator npm vi-mode history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
 
 # history-substring-search = ZSH_CUSTOM/plugins/zsh-history-substring-search (from git)
 bindkey '^[[A' history-substring-search-up
@@ -114,29 +114,23 @@ export EDITOR='vim'
 
 function watchp() {
 # watch the last command (excludes itself)
-  WATCH_INT=10
-	if [ "$#" -eq 1 ]; then
-		WATCH_INT=$1
-	fi
+  WATCH_S=${1:-10}
 
-  r -lnr | \
-		grep -v '^watchp' | \
-		head -1 | \
-		xargs -I% watch -n $WATCH_INT %
+  fc -ln -5 | \
+		grep -ve '^watchp' | \
+		tail -1 | \
+		xargs -I{} watch -n $WATCH_S {}
 }
 
 function mac-notify() {
-  MESSAGE="[No Message]"
-  if [ "$#" -gt 0 ]; then
-    MESSAGE=$1
-  fi
+  MESSAGE=${1:-[No Message]}
   osascript -e "display notification \"$MESSAGE\" with title \"CLI Message\" sound name \"Pop\""
 }
 
-alias prevcmd="r -lnr | grep -v '^prevcmd' | head -1"
+alias prevcmd="fc -ln -5 | grep -ve '^prevcmd' -ve '^fc ' | tail -1"
 
 function prevcmd_to_alias() {
-  if [ "$#" -lt 1 ]; then
+  if [[ $# -lt 1 ]]; then
 		echo "Enter alias name as parameter"
 		return 1
 	fi
@@ -172,18 +166,6 @@ alias tmux_panetitle='tmux set pane-border-status bottom; tmux set pane-border-f
 alias lsl="exa --header --long --group --color=always"
 alias grep="grep --color=auto"
 alias mux="tmuxinator"
-
-alias npm-low="sudo npm install -g npm@4.6.1"  # from Neal
-alias npm-high="sudo npm install -g npm@6.9.0" # from Neal
-
-# flyway
-alias flyway-analyst='flyway -url="jdbc:mysql://127.0.0.1:3306/analyst?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC" -locations="filesystem:/$HOME/Development/git/analyst-ng/source/ext-db/analyst-ng/" -schemas=analyst,evun'
-alias flyway-boxbe='flyway -url="jdbc:mysql://127.0.0.1:3306/boxbe?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC" -locations="filesystem:/$HOME/Development/git/analyst-ng/boxbe/database/main/"'
-alias flyway-dev='flyway -url="jdbc:mysql://127.0.0.1:3306/analystFlywayDev?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC" -locations="filesystem:/$HOME/Development/git/analyst-ng/source/ext-db/analyst-ng-dev-load/" -schemas='
-alias flyway-boxbe-dev='flyway -url="jdbc:mysql://127.0.0.1:3306/boxbeFlywayDev?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC" -locations="filesystem:/$HOME/Development/git/analyst-ng/boxbe/database/dev-load/"'
-
-alias flyway-reset-boxbe='flyway-boxbe clean migrate; flyway-boxbe-dev clean migrate;'
-alias flyway-reset='flyway-analyst clean migrate; flyway-dev clean migrate'
 
 # mysql
 alias mysql-localhost='mysql -u root -p'
