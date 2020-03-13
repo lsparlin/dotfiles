@@ -1,5 +1,4 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -26,14 +25,18 @@ Bundle 'mxw/vim-jsx'
 Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rbenv'
 Bundle 'derekwyatt/vim-scala'
 
+set omnifunc=syntaxcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" filetype plugin indent on
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
+autocmd FileType ruby compiler ruby
  
 " All of your Plugins must be added before the following line
 call vundle#end()

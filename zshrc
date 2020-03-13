@@ -24,7 +24,7 @@ autoload -U zmv
 ZSH_THEME="spaceship"
 
 # Spaceship-theme prompt on
-SPACESHIP_PROMPT_ORDER=(user dir host git_branch exec_time line_sep battery vi_mode jobs char) 
+SPACESHIP_PROMPT_ORDER=(user dir host git_branch ruby exec_time line_sep battery vi_mode jobs char) 
 SPACESHIP_GIT_BRANCH_PREFIX=" "
 SPACESHIP_GIT_BRANCH_SUFFIX=" " 
 SPACESHIP_VI_MODE_INSERT="[vi-i]"
