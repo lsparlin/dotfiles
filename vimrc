@@ -5,8 +5,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Bundle 'gmarik/Vundle.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
 if executable('ctags')
   Bundle 'majutsushi/tagbar'
   Bundle 'xolox/vim-misc'
@@ -27,6 +25,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rbenv'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'ctrlpvim/ctrlp.vim'
 
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -43,7 +42,7 @@ call vundle#end()
 
 " auto-save view (state) - currently for saving fold state
 autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent! :%foldopen!
+" autocmd BufWinEnter *.* silent! :%foldopen!
 autocmd BufWinEnter *.* silent loadview
 
 syntax on
@@ -76,18 +75,9 @@ au BufRead,BufNewFile *.dom set filetype=html
  
 " Key mappings
 let mapleader = ","
-nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 nnoremap <leader>s :set spell!<CR>
 vnoremap . :norm.<CR>
-map <leader>e :NERDTreeFind<CR>
-nmap <leader>nt :NERDTreeFind<CR>
-let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=1
-let NERDTreeShowHidden=1
-let NERDTreeKeepTreeInNewTab=1
 
 "vim-arline"
 "let g:airline_branch_prefix     = ''
@@ -112,6 +102,9 @@ endif
 
 " vim-markdown plugin customization
 let g:vim_markdown_folding_disabled=1
+
+" ctrlp search files through git to ignore git-ignored files
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 runtime macros/matchit.vim
 
