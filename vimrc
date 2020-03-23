@@ -24,9 +24,10 @@ Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rbenv'
+Bundle 'tpope/vim-rails'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'ctrlpvim/ctrlp.vim'
-
+ 
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -36,13 +37,14 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 autocmd FileType ruby compiler ruby
- 
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
+
 " auto-save view (state) - currently for saving fold state
 autocmd BufWinLeave *.* mkview
-" autocmd BufWinEnter *.* silent! :%foldopen!
+autocmd BufWinEnter *.* silent! :%foldopen!
 autocmd BufWinEnter *.* silent loadview
 
 syntax on
@@ -104,7 +106,7 @@ endif
 let g:vim_markdown_folding_disabled=1
 
 " ctrlp search files through git to ignore git-ignored files
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard', 'find %s -type f']
 
 runtime macros/matchit.vim
 
