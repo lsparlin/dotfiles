@@ -105,6 +105,7 @@ let g:airline#extensions#tagbar#enabled = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+let g:airline_symbols.branch = '🌿'
 
 " vim-markdown plugin customization
 let g:vim_markdown_folding_disabled=1
