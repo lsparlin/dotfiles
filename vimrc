@@ -13,10 +13,8 @@ if executable('ctags')
 endif
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
-Bundle "motus/pig.vim"
 Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
-Bundle 'tpope/vim-haml'
 Bundle 'elzr/vim-json'
 Bundle "pangloss/vim-javascript"
 Bundle 'mxw/vim-jsx'
@@ -25,6 +23,11 @@ Bundle 'tpope/vim-markdown'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-capslock'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-fugitive'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'ctrlpvim/ctrlp.vim'
  
@@ -42,6 +45,7 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType ruby compiler ruby
 
 syntax on
+hi Visual ctermbg=White
 set nowrap
 set number
 set smartindent
@@ -82,14 +86,14 @@ nnoremap <leader>s :set spell!<CR>
 vnoremap . :norm.<CR>
 
 "vim-arline"
-"let g:airline_branch_prefix     = ''
+"let g:airline_branch_prefix = ''
 "let g:airline_readonly_symbol   = ''
 "let g:airline_linecolumn_prefix = ''
-"let g:airline_enable_branch     = 1
+let g:airline_enable_branch = 1
 "let g:airline_enable_syntastic  = 1
 let g:airline_powerline_fonts = 1
 
-"let g:airline_theme = 'powerlineish'
+" let g:airline_theme = 'powerlineish'
 let g:airline_theme = 'bubblegum'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
