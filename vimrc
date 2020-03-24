@@ -28,6 +28,9 @@ Bundle 'tpope/vim-rails'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'ctrlpvim/ctrlp.vim'
  
+" All of your Plugins must be added before the following line
+call vundle#end()
+
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -37,10 +40,6 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 autocmd FileType ruby compiler ruby
-
-" All of your Plugins must be added before the following line
-call vundle#end()
-
 
 " auto-save view (state) - currently for saving fold state
 autocmd BufWinLeave *.* mkview
