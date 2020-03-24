@@ -41,11 +41,6 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 autocmd FileType ruby compiler ruby
 
-" auto-save view (state) - currently for saving fold state
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent! :%foldopen!
-autocmd BufWinEnter *.* silent loadview
-
 syntax on
 set nowrap
 set number
@@ -62,16 +57,22 @@ set wildmenu                    " show list instead of just completing
 set wildmode=list:longest,full  " command <Tab> completion, list matches, then longest common part, then all.
 setlocal foldmethod=syntax      " create fold points automatically based on syntax
 
-" status line
-set laststatus=2
-hi statusline ctermbg=lightgray
+
+" auto-save view (state) - currently for saving fold state
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent loadview
+autocmd BufWinEnter * silent! :%foldopen!
+
+" status line (not needed with airline plugin)
+" set laststatus=2
+" hi statusline ctermbg=lightgray
  
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 set encoding=utf-8
  
-" file type mappings
+" custom file type mappings
 au BufRead,BufNewFile *.dom set filetype=html
  
 " Key mappings
