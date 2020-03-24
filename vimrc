@@ -63,9 +63,9 @@ setlocal foldmethod=syntax      " create fold points automatically based on synt
 
 
 " auto-save view (state) - currently for saving fold state
-autocmd BufWinLeave * mkview
-autocmd BufWinEnter * silent loadview
-autocmd BufWinEnter * silent! :%foldopen!
+autocmd BufWinLeave ?* mkview
+autocmd BufWinEnter ?* silent loadview
+autocmd BufWinEnter ?* silent! :%foldopen!
 
 " status line (not needed with airline plugin)
 " set laststatus=2
