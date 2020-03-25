@@ -23,6 +23,8 @@ Bundle 'tpope/vim-markdown'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-rails'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-capslock'
@@ -83,7 +85,7 @@ au BufRead,BufNewFile *.dom set filetype=html
  
 " Key mappings
 let mapleader = ","
-nnoremap <silent> <Leader>b :TagbarToggle<CR>
+nnoremap <silent> <leader>b :TagbarToggle<CR>
 nnoremap <leader>s :set spell!<CR>
 vnoremap . :norm.<CR>
 

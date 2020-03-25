@@ -6,6 +6,8 @@
 	lgv = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	diff = diff --color=always
 	ch = checkout
+  sw = switch
+  rst = restore
 	m = merge
 	r = remote -v
 	f = fetch
@@ -30,7 +32,7 @@
 	editor = /usr/bin/vim
 [user]
 	name = Lewis Sparlin
-	email = lewis.sparlin@sparkpost.com
+	email = lewis.sparlin@icloud.com
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
