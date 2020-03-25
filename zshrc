@@ -12,6 +12,11 @@ GREP_COLOR='1;32'
 # Extra ZSH Built-Ins
 autoload -U zmv
 
+# zsh-syntax-highlighting Customization https://github.com/zsh-users/zsh-syntax-highlighting/tree/master/highlighters/main
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=red'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=red'
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each

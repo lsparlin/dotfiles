@@ -30,6 +30,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'dhruvasagar/vim-open-url'
  
 " All of your Plugins must be added before the following line
 call vundle#end()
