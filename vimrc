@@ -19,7 +19,6 @@ Bundle 'elzr/vim-json'
 Bundle "pangloss/vim-javascript"
 Bundle 'mxw/vim-jsx'
 Bundle 'othree/html5.vim'
-Bundle 'tpope/vim-markdown'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-rails'
@@ -110,9 +109,6 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.branch = '🌿'
-
-" vim-markdown plugin customization
-let g:vim_markdown_folding_disabled=1
 
 " ctrlp search files through git to ignore git-ignored files
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard', 'find %s -type f']
