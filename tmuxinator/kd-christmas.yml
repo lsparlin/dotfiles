@@ -1,6 +1,6 @@
 # ~/.tmuxinator/sp-christmas.yml
 
-name: SP 🎄
+name: K/D 🎄
 root: ~/
 
 startup_window: dev
@@ -11,12 +11,12 @@ windows:
       panes: 
         - clear
   - dev: 
-      root: ~/Development/git
+      root: ~/git/known_decimal
       layout: 287d,158x36,0,0[158x17,0,0{79x17,0,0,1,78x17,80,0,4},158x18,0,18,3]
       panes:
-        - cd analyst-ng/source/; clear
+        - 
         - docker run -it -e COLUMNS=$COLUMNS sergiolepore/christbashtree:latest
-        - cd analyst-ng/source; clear
+        - 
   - updates:
       panes:
-        -  clear; brew update; brew outdated
+        - brew update; echo "\n--- OUTDATED ---"; brew outdated

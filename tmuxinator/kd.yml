@@ -1,6 +1,6 @@
-# ~/.tmuxinator/sp.yml
+# ~/.tmuxinator/kd.yml
 #
-name: SparkPost
+name: K/D
 root: ~/
 startup_window: dev
 startup_pane: 1
@@ -10,11 +10,11 @@ windows:
       panes:
         - clear
   - dev:
-      root: ~/Development/git/analyst-ng
+      root: ~/git/known_decimal
       layout: even-vertical
       panes:
         - 
         - 
   - updates:
       panes:
-        - brew update; echo "--- OUTDATED ---"; brew outdated
+        - brew update; echo "\n--- OUTDATED ---"; brew outdated

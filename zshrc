@@ -93,7 +93,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export PATH="/Users/lsparlin/.rvm/gems/ruby-2.1.5/bin:/Users/lsparlin/.rvm/gems/ruby-2.1.5@global/bin:/Users/lsparlin/.rvm/rubies/ruby-2.1.5/bin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/bin:/Users/lsparlin/.rvm/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,6 +118,7 @@ export EDITOR='vim'
 
 # Java
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+source ~/.asdf/plugins/java/set-java-home.sh
 
 ## --- Functions --- ##
 
@@ -199,5 +200,7 @@ function gh_open() { # gh_open filename|dir [remote] [branch]
 alias gh_prinfo='hub pr list | grep -i $(git rev-parse --abbrev-ref HEAD | sed -E "s/([A-Z]{2})-([[:digit:]]{4})-.*/\1[-[:blank:]]*\2/g")'
 
 ##
-### ---- Unsorted Aliases
+### ---- Appended commands
 ##
+
+source /usr/local/opt/asdf/asdf.sh
