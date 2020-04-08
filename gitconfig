@@ -30,6 +30,7 @@
 	autocrlf = false
 	whitespace = cr-at-eol
 	editor = /usr/bin/vim
+	excludesfile = /Users/lewis/.gitignore
 [user]
 	name = Lewis Sparlin
 	email = lewis.sparlin@icloud.com

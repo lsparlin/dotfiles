@@ -36,6 +36,7 @@ SPACESHIP_GIT_BRANCH_PREFIX="🌿 "
 SPACESHIP_GIT_BRANCH_SUFFIX=" " 
 SPACESHIP_VI_MODE_INSERT="[i]"
 SPACESHIP_VI_MODE_NORMAL="[c]"
+SPACESHIP_EXEC_TIME_PREFIX="⏱  "
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -203,4 +204,5 @@ alias gh_prinfo='hub pr list | grep -i $(git rev-parse --abbrev-ref HEAD | sed -
 ### ---- Appended commands
 ##
 
-source /usr/local/opt/asdf/asdf.sh
+. /usr/local/opt/asdf/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.sh
