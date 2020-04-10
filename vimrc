@@ -111,7 +111,7 @@ endif
 let g:airline_symbols.branch = '🌿'
 
 " ctrlp search files through git to ignore git-ignored files
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard', 'find %s -maxdepth 2 -type f']
 
 runtime macros/matchit.vim
 

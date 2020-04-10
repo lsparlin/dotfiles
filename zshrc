@@ -29,7 +29,7 @@ ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=red'
 ZSH_THEME="spaceship"
 
 # Spaceship-theme prompt on
-SPACESHIP_CHAR_SYMBOL="☕️ >_"
+SPACESHIP_CHAR_SYMBOL="☕️</> "
 SPACESHIP_PROMPT_ORDER=(user dir host git_branch ruby exec_time line_sep battery vi_mode jobs char) 
 # SPACESHIP_GIT_BRANCH_PREFIX=" "
 SPACESHIP_GIT_BRANCH_PREFIX="🌿 "
@@ -177,6 +177,7 @@ alias tmux_panetitle='tmux set pane-border-status bottom; tmux set pane-border-f
 alias lsl="exa --header --long --group --color=always"
 alias grep="grep --color=auto"
 alias mux="tmuxinator"
+alias lse="exa"
 
 # mysql
 alias mysql-localhost='mysql -u root -p'
@@ -206,3 +207,4 @@ alias gh_prinfo='hub pr list | grep -i $(git rev-parse --abbrev-ref HEAD | sed -
 
 . /usr/local/opt/asdf/asdf.sh
 . ~/.asdf/plugins/java/set-java-home.sh
+alias weather="curl -s wttr.in\?1Fn"

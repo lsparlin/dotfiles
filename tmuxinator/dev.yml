@@ -7,13 +7,15 @@ startup_pane: 1
 
 windows:
   - general:
+      layout: even-vertical
       panes:
-        - clear
+        - clear; weather; echo "Press any key to close" && read && tmux kill-pane
+        - clear; figlet "General"
   - dev:
       root: ~/git
       layout: even-vertical
       panes:
-        - 
+        - clear; figlet "Dev\!"
         - 
   - updates:
       panes:
