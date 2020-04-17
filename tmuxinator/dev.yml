@@ -10,12 +10,12 @@ windows:
       layout: even-vertical
       panes:
         - clear; weather; echo "Press any key to close" && read && tmux kill-pane
-        - clear; figlet "General"
+        - clear; figlet -w $COLUMNS -kc "General"
   - dev:
       root: ~/git
       layout: even-vertical
       panes:
-        - clear; figlet "Dev\!"
+        - clear; figlet -w $COLUMNS -kc "Dev\!"
         - 
   - updates:
       panes:

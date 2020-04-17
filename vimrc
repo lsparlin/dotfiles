@@ -49,6 +49,7 @@ autocmd FileType ruby compiler ruby
 
 syntax on
 hi Visual ctermbg=White
+hi Comment cterm=italic
 set nowrap
 set number
 set smartindent

@@ -29,7 +29,7 @@ ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=red'
 ZSH_THEME="spaceship"
 
 # Spaceship-theme prompt on
-SPACESHIP_CHAR_SYMBOL="☕️</> "
+SPACESHIP_CHAR_SYMBOL="☕️>__"
 SPACESHIP_PROMPT_ORDER=(user dir host git_branch ruby exec_time line_sep battery vi_mode jobs char) 
 # SPACESHIP_GIT_BRANCH_PREFIX=" "
 SPACESHIP_GIT_BRANCH_PREFIX="🌿 "
@@ -119,7 +119,7 @@ export EDITOR='vim'
 
 # Java
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-source ~/.asdf/plugins/java/set-java-home.sh
+source ~/.asdf/plugins/java/set-java-home.zsh
 
 ## --- Functions --- ##
 
@@ -201,10 +201,12 @@ function gh_open() { # gh_open filename|dir [remote] [branch]
 }
 alias gh_prinfo='hub pr list | grep -i $(git rev-parse --abbrev-ref HEAD | sed -E "s/([A-Z]{2})-([[:digit:]]{4})-.*/\1[-[:blank:]]*\2/g")'
 
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/lewis/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+
 ##
 ### ---- Appended commands
 ##
 
 . /usr/local/opt/asdf/asdf.sh
-. ~/.asdf/plugins/java/set-java-home.sh
-alias weather="curl -s wttr.in\?1Fn"
+alias weather="curl -s wttr.in\?1TFn"

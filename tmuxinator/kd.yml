@@ -8,12 +8,13 @@ startup_pane: 1
 windows:
   - general:
       panes:
-        - clear
+        - clear; weather; echo "Press a key to close" && read && tmux kill-pane
+        - clear; figlet -w $COLUMNS -kc "General"
   - dev:
       root: ~/git/known_decimal
       layout: even-vertical
       panes:
-        - 
+        - clear; figlet -w $COLUMNS -Wc "K/D"
         - 
   - updates:
       panes:
