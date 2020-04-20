@@ -29,14 +29,15 @@ ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=red'
 ZSH_THEME="spaceship"
 
 # Spaceship-theme prompt on
-SPACESHIP_CHAR_SYMBOL="☕️>__"
+SPACESHIP_CHAR_SYMBOL="☕️>_"
 SPACESHIP_PROMPT_ORDER=(user dir host git_branch ruby exec_time line_sep battery vi_mode jobs char) 
 # SPACESHIP_GIT_BRANCH_PREFIX=" "
-SPACESHIP_GIT_BRANCH_PREFIX="🌿 "
+SPACESHIP_GIT_BRANCH_PREFIX="🌿"
 SPACESHIP_GIT_BRANCH_SUFFIX=" " 
 SPACESHIP_VI_MODE_INSERT="[i]"
 SPACESHIP_VI_MODE_NORMAL="[c]"
-SPACESHIP_EXEC_TIME_PREFIX="⏱  "
+SPACESHIP_EXEC_TIME_PREFIX="⏱ "
+SPACESHIP_RUBY_SYMBOL="💎"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
