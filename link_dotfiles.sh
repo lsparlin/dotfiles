@@ -3,7 +3,7 @@
 MY_DOTFILES_DIR=$HOME/dotfiles
 
 ls -l1 $MY_DOTFILES_DIR |\
-  grep -Ev "backup|link_dotfiles|custom|configuration" |\
+  grep -Ev "README|link_dotfiles|custom|configuration" |\
   xargs -I% ln -fvhs $MY_DOTFILES_DIR/% $HOME/.%
 
 # ~/.tmux.conf is the native location for tmux config
