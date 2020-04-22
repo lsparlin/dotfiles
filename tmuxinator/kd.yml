@@ -11,7 +11,7 @@ windows:
         - clear; weather; echo "Press a key to close" && read && tmux kill-pane
         - clear; figlet -w $COLUMNS -kc "General"
   - dev:
-      root: ~/git/known_decimal
+      root: ~/git/known_decimal/<%= ENV["CURRENT_KD_PROJECT"] %>
       layout: even-vertical
       panes:
         - clear; figlet -w $COLUMNS -Wc "K/D"

@@ -11,7 +11,7 @@ windows:
       panes: 
         - clear
   - dev: 
-      root: ~/git/known_decimal
+      root: ~/git/known_decimal/<%= ENV["CURRENT_KD_PROJECT"] %>
       layout: 287d,158x36,0,0[158x17,0,0{79x17,0,0,1,78x17,80,0,4},158x18,0,18,3]
       panes:
         - 
