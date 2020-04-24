@@ -11,6 +11,8 @@ if executable('ctags')
   Bundle 'xolox/vim-easytags'
   Bundle 'vim-scripts/taglist.vim'
 endif
+Bundle 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'groenewege/vim-less'

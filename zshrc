@@ -6,7 +6,7 @@ fi
 if [ -f $HOME/.local_scripts.zsh ]; then
 	source $HOME/.local_scripts.zsh 
 fi
-NODE_PATH='/usr/local/lib/node_modules'
+#NODE_PATH='/usr/local/lib/node_modules'
 GREP_COLOR='1;32'
 
 # Extra ZSH Built-Ins
