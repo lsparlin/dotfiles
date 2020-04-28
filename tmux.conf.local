@@ -7,6 +7,9 @@
 set -g default-terminal 'tmux-256color-italic'
 set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
 
+# zsh from homebrew
+set -g default-shell /usr/local/bin/zsh
+
 # -- navigation ----------------------------------------------------------------
 
 # if you're running tmux within iTerm2

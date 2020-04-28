@@ -16,6 +16,8 @@ windows:
       panes:
         - clear; figlet -w $COLUMNS -Wc "K/D"
         - 
+  - "rails s":
+      root: ~/git/known_decimal/<%= ENV["CURRENT_KD_PROJECT"] %>
   - updates:
       panes:
         - brew update; echo "\n--- OUTDATED ---"; brew outdated
