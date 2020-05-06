@@ -1,11 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-if [ -f $HOME/.env_variables.zsh ]; then 
-  source $HOME/.env_variables.zsh # dev env variables
-fi
-if [ -f $HOME/.local_scripts.zsh ]; then
-	source $HOME/.local_scripts.zsh 
-fi
+[ -f $HOME/.env_variables.zsh ] && source $HOME/.env_variables.zsh # local env variables
+[ -f $HOME/.local_scripts.zsh ] && source $HOME/.local_scripts.zsh 
 #NODE_PATH='/usr/local/lib/node_modules'
 GREP_COLOR='1;32'
 
@@ -171,7 +167,8 @@ alias flushcache="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder;
 alias redis="redis-server"
 alias lswc="ls | wc"
 alias vi='vim'
-alias vip='vim -p'
+alias vimp='vim -p'
+alias vimf='vim -p $(fzf --multi)'
 alias vim-tabs='vim "+set noexpandtab"'
 alias spotlight_reset="sudo mdutil -E -a -i on"
 alias tmux_panetitle='tmux set pane-border-status bottom; tmux set pane-border-format "#{pane_current_command}"'
@@ -179,6 +176,7 @@ alias lsl="exa --header --long --group --color=always"
 alias grep="grep --color=auto"
 alias mux="tmuxinator"
 alias lse="exa"
+alias weather="curl -s wttr.in\?1TFn"
 
 # mysql
 alias mysql-localhost='mysql -u root -p'
@@ -210,4 +208,5 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/lewis/Library/Caches/heroku/autocomplete/zsh_set
 ##
 
 . /usr/local/opt/asdf/asdf.sh
-alias weather="curl -s wttr.in\?1TFn"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
