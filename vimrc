@@ -11,8 +11,9 @@ if executable('ctags')
   Bundle 'xolox/vim-easytags'
   Bundle 'vim-scripts/taglist.vim'
 endif
+Bundle 'preservim/nerdtree'
 Bundle 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Bundle 'plasticboy/vim-markdown'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'groenewege/vim-less'
@@ -35,6 +36,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'dhruvasagar/vim-open-url'
+Bundle 'junegunn/fzf'
+Bundle 'junegunn/fzf.vim'
  
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -53,6 +56,7 @@ syntax on
 hi Visual ctermbg=White
 hi Comment cterm=italic
 set nowrap
+set hidden
 set number
 set smartindent
 set hlsearch
@@ -65,12 +69,8 @@ set scrolloff=3                 " minimum lines to keep above and below cursor
 set sidescroll=2                " cols to scroll when cursor leaves screen to the side
 set wildmenu                    " show list instead of just completing
 set wildmode=list:longest,full  " command <Tab> completion, list matches, then longest common part, then all.
-setlocal foldmethod=syntax      " create fold points automatically based on syntax
+set foldmethod=syntax      " create fold points automatically based on syntax
 
-
-" auto-save view (state) - currently for saving fold state
-autocmd BufWinLeave ?* mkview
-autocmd BufWinEnter ?* silent loadview
 autocmd BufWinEnter ?* silent! :%foldopen!
 
 " status line (not needed with airline plugin)
@@ -88,6 +88,8 @@ au BufRead,BufNewFile *.dom set filetype=html
 " Key mappings
 let mapleader = ","
 nnoremap <silent> <leader>b :TagbarToggle<CR>
+nnoremap <silent> <leader>n :NERDTreeToggle<CR>
+nnoremap <silent> <leader>f :FZF<CR>
 nnoremap <leader>s :set spell!<CR>
 vnoremap . :norm.<CR>
 
@@ -112,6 +114,9 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.branch = '🌿'
+
+" vim-markdown do not auto-indent when typing lists
+let g:vim_markdown_new_list_item_indent = 0
 
 " ctrlp search files through git to ignore git-ignored files
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard', 'find %s -maxdepth 2 -type f']
