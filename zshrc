@@ -168,8 +168,7 @@ alias redis="redis-server"
 alias lswc="ls | wc"
 alias vi='vim'
 alias vimp='vim -p'
-alias vimf='vim -p $(fzf --multi)'
-alias vim-tabs='vim "+set noexpandtab"'
+alias vimf='vim $(fzf --multi)'
 alias spotlight_reset="sudo mdutil -E -a -i on"
 alias tmux_panetitle='tmux set pane-border-status bottom; tmux set pane-border-format "#{pane_current_command}"'
 alias lsl="exa --header --long --group --color=always"

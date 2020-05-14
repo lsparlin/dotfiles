@@ -4,40 +4,41 @@ set nocompatible              " be iMproved, required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Bundle 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 if executable('ctags')
-  Bundle 'majutsushi/tagbar'
-  Bundle 'xolox/vim-misc'
-  Bundle 'xolox/vim-easytags'
-  Bundle 'vim-scripts/taglist.vim'
+  Plugin 'majutsushi/tagbar'
+  Plugin 'xolox/vim-misc'
+  Plugin 'xolox/vim-easytags'
+  Plugin 'vim-scripts/taglist.vim'
 endif
-Bundle 'preservim/nerdtree'
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'groenewege/vim-less'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'elzr/vim-json'
-Bundle "pangloss/vim-javascript"
-Bundle 'mxw/vim-jsx'
-Bundle 'othree/html5.vim'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rbenv'
-Bundle 'tpope/vim-rails'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-capslock'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'dhruvasagar/vim-open-url'
-Bundle 'junegunn/fzf'
-Bundle 'junegunn/fzf.vim'
+Plugin 'preservim/nerdtree'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'groenewege/vim-less'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'elzr/vim-json'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'othree/html5.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rbenv'
+Plugin 'tpope/vim-rails'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-capslock'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'dhruvasagar/vim-open-url'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'dense-analysis/ale'
  
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -90,8 +91,21 @@ let mapleader = ","
 nnoremap <silent> <leader>b :TagbarToggle<CR>
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <leader>f :FZF<CR>
+nnoremap <silent> <leader>a :ALEToggle<CR>
 nnoremap <leader>s :set spell!<CR>
 vnoremap . :norm.<CR>
+
+"tagbar
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
+
+"ale
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
+let g:ale_fixers = {
+\  '*': ['remove_trailing_lines', 'trim_whitespace'],
+\  'ruby': ['rubocop'],
+\}
 
 "vim-arline"
 "let g:airline_branch_prefix = ''
