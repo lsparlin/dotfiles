@@ -111,6 +111,7 @@ let g:ale_fixers = {
 "let g:airline_branch_prefix = ''
 "let g:airline_readonly_symbol   = ''
 "let g:airline_linecolumn_prefix = ''
+let g:airline#extensions#whitespace#enabled = 0
 let g:airline_enable_branch = 1
 "let g:airline_enable_syntastic  = 1
 let g:airline_powerline_fonts = 1
