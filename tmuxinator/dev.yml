@@ -9,7 +9,7 @@ windows:
   - general:
       layout: even-vertical
       panes:
-        - clear; weather; echo "Press any key to close" && read && tmux kill-pane
+        - clear; neofetch
         - clear; figlet -w $COLUMNS -kc "General"
   - dev:
       root: ~/git

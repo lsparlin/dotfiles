@@ -56,7 +56,6 @@ autocmd FileType ruby compiler ruby
 syntax on
 hi Visual ctermbg=White
 hi Comment cterm=italic
-set nowrap
 set hidden
 set number
 set smartindent
@@ -73,6 +72,13 @@ set wildmode=list:longest,full  " command <Tab> completion, list matches, then l
 set foldmethod=syntax      " create fold points automatically based on syntax
 
 autocmd BufWinEnter ?* silent! :%foldopen!
+
+" pretty wrap?
+set wrap
+set linebreak
+set breakindent
+set breakindentopt=sbr
+set showbreak=↪>\
 
 " status line (not needed with airline plugin)
 " set laststatus=2
