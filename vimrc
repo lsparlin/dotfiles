@@ -1,10 +1,11 @@
 set nocompatible              " be iMproved, required
+filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 if executable('ctags')
   Plugin 'majutsushi/tagbar'
   Plugin 'xolox/vim-misc'
@@ -17,6 +18,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'groenewege/vim-less'
+Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
@@ -53,7 +55,7 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 autocmd FileType ruby compiler ruby
 
-syntax on
+syntax enable
 hi Visual ctermbg=White
 hi Comment cterm=italic
 set hidden
@@ -124,7 +126,8 @@ let g:airline_enable_branch = 1
 let g:airline_powerline_fonts = 1
 
 " let g:airline_theme = 'powerlineish'
-let g:airline_theme = 'bubblegum'
+" let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'distinguished'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
