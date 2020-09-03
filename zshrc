@@ -176,6 +176,9 @@ alias grep="grep --color=auto"
 alias mux="tmuxinator"
 alias lse="exa"
 alias weather="curl -s wttr.in\?1TFn"
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
 
 # mysql
 alias mysql-localhost='mysql -u root -p'

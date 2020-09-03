@@ -41,6 +41,7 @@ Plugin 'dhruvasagar/vim-open-url'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'dense-analysis/ale'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
  
 " All of your Plugins must be added before the following line
 call vundle#end()
