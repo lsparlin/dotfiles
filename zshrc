@@ -86,7 +86,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export PATH="/Users/lsparlin/.rvm/gems/ruby-2.1.5/bin:/Users/lsparlin/.rvm/gems/ruby-2.1.5@global/bin:/Users/lsparlin/.rvm/rubies/ruby-2.1.5/bin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/bin:/Users/lsparlin/.rvm/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -96,6 +96,14 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
 ulimit -n 8192
+
+# Homebrew completion setup
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -154,7 +162,6 @@ function prevcmd_to_alias() {
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias git=hub # per hub documentation
 alias gst='git status -s'
 alias mmv='noglob zmv -W'
 alias vit='vi ~/.tmux.conf'
@@ -200,7 +207,6 @@ function gh_open() { # gh_open filename|dir [remote] [branch]
 		sed -E "s;git@github.com:(.*)/(.*)\.git;https://github.com/\1/\2/$url_path/${3:-$curr_branch}/;g" | \
     xargs -I% open "%$(git rev-parse --show-prefix)$1"
 }
-alias gh_prinfo='hub pr list | grep -i $(git rev-parse --abbrev-ref HEAD | sed -E "s/([A-Z]{2})-([[:digit:]]{4})-.*/\1[-[:blank:]]*\2/g")'
 
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/lewis/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
