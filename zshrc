@@ -94,6 +94,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
+eval spaceship_vi_mode_enable
 
 ulimit -n 8192
 

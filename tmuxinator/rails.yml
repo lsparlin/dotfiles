@@ -24,5 +24,5 @@ windows:
   - server:
       layout: even-vertical
       panes:
-        - shoreman Procfile.dev
+        - shoreman Procfile.dev || shoreman
         - 
