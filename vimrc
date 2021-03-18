@@ -88,4 +88,15 @@ let g:skyline_gitbranch = 1
 " vim-markdown do not auto-indent when typing lists
 let g:vim_markdown_new_list_item_indent = 0
 
+let g:lightline = {
+  \     'colorscheme': 'wombat',
+  \     'active': {
+  \         'left': [['mode', 'paste' ], ['gitbranch', 'readonly', 'absolutepath', 'modified']],
+  \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
+  \     },
+  \     'component_function': {
+  \         'gitbranch': 'FugitiveHead'
+  \     }
+  \ }
+
 runtime macros/matchit.vim

@@ -8,7 +8,8 @@ if executable('ctags')
 endif
 Plug 'preservim/nerdtree'
 " Plug 'godlygeek/tabular'
-Plug 'ourigen/skyline.vim'
+" Plug 'ourigen/skyline.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'groenewege/vim-less'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
