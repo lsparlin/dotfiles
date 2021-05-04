@@ -12,6 +12,13 @@ endif
 
 so ~/.vim/plugins.vim
 
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+colorscheme spaceduck
+
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
@@ -63,16 +70,12 @@ au BufRead,BufNewFile *.dom set filetype=html
  
 " Key mappings
 let mapleader = ","
-nnoremap <silent> <leader>b :TagbarToggle<CR>
+nnoremap <silent> <leader>b :CocList outline<CR>
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <leader>f :FZF<CR>
 nnoremap <silent> <leader>a :ALEToggle<CR>
 nnoremap <leader>s :set spell!<CR>
 vnoremap . :norm.<CR>
-
-"tagbar
-let g:tagbar_autofocus = 1
-let g:tagbar_autoclose = 1
 
 "ale
 let g:ale_lint_on_enter = 0
@@ -84,18 +87,23 @@ let g:ale_fixers = {
 \}
 
 let g:skyline_gitbranch = 1
+let g:vista#renderer#enable_icon = 0
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
 
 " vim-markdown do not auto-indent when typing lists
 let g:vim_markdown_new_list_item_indent = 0
 
 let g:lightline = {
-  \     'colorscheme': 'wombat',
+  \     'colorscheme': 'spaceduck',
   \     'active': {
-  \         'left': [['mode', 'paste' ], ['gitbranch', 'readonly', 'absolutepath', 'modified']],
+  \         'left': [['mode', 'paste' ], ['gitbranch', 'readonly', 'filename', 'modified']],
   \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
   \     },
   \     'component_function': {
-  \         'gitbranch': 'FugitiveHead'
+  \       'gitbranch': 'FugitiveHead'
   \     }
   \ }
 
