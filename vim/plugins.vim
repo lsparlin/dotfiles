@@ -29,6 +29,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'dense-analysis/ale'
+Plug 'fladson/vim-kitty'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-locfile'}
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 

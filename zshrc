@@ -76,7 +76,7 @@ ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew osx common-aliases tmux tmuxinator npm vi-mode history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git brew osx common-aliases tmux tmuxinator npm vi-mode dirhistory history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
 
 # history-substring-search = ZSH_CUSTOM/plugins/zsh-history-substring-search (from git)
 bindkey '^[[A' history-substring-search-up
