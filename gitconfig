@@ -33,11 +33,12 @@
 	excludesfile = ~/.gitignore
 [user]
 	name = Lewis Sparlin
-	email = lewis.sparlin@icloud.com
+	email = hello@lewismsparlin.com
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [credential]
 	helper = osxkeychain
 [pull]

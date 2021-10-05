@@ -2,3 +2,4 @@ backup/
 vim/bundle/*
 vim/plugged/*
 !vim/bundle/Vudle.vim
+.DS_Store
