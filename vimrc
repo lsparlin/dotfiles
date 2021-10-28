@@ -31,7 +31,7 @@ autocmd FileType ruby compiler ruby
 
 syntax enable
 hi Visual ctermbg=White
-hi Comment cterm=italic
+hi Comment cterm=italic gui=italic
 set hidden 
 set number
 set smartindent
@@ -72,7 +72,7 @@ au BufRead,BufNewFile *.dom set filetype=html
 let mapleader = ","
 nnoremap <silent> <leader>b :CocList outline<CR>
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
-nnoremap <silent> <leader>f :FZF<CR>
+nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>a :ALEToggle<CR>
 nnoremap <leader>s :set spell!<CR>
 vnoremap . :norm.<CR>

@@ -1,21 +1,12 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
-" Plug 'godlygeek/tabular'
-" Plug 'ourigen/skyline.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'groenewege/vim-less'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'elzr/vim-json'
 Plug 'sheerun/vim-polyglot'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'othree/html5.vim'
-Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-apathy'
-Plug 'tomlion/vim-solidity'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'tpope/vim-bundler'
@@ -25,12 +16,13 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'dhruvasagar/vim-open-url'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'dense-analysis/ale'
 Plug 'fladson/vim-kitty'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-locfile'}
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+Plug 'github/copilot.vim'
 
 call plug#end()
