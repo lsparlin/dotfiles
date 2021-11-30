@@ -5,7 +5,7 @@
 <% project_dir = @settings.fetch('dir') %>
 
 name: <%= project_dir.split('/').last %>
-root: ~/git/<%= project_dir %>
+root: <%= project_dir %>
 startup_window: editor
 
 pre_window: clear
