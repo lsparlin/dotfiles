@@ -309,3 +309,4 @@ tmux_conf_copy_to_os_clipboard=true
 # move status line to top
 set -g status-position bottom
 setw -g mouse on
+

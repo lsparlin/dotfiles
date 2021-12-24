@@ -1,7 +1,4 @@
 set nocompatible              " be iMproved, required
-filetype off
-
-" Plugins "
 
 " Install and run vim-plug on first run
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -12,11 +9,11 @@ endif
 
 so ~/.vim/plugins.vim
 
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+" if exists('+termguicolors')
+"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"   set termguicolors
+" endif
 colorscheme spaceduck
 
 set omnifunc=syntaxcomplete#Complete
@@ -30,8 +27,8 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType ruby compiler ruby
 
 syntax enable
-hi Visual ctermbg=White
-hi Comment cterm=italic gui=italic
+hi Visual ctermbg=gray guibg=gray
+hi Comment cterm=italic gui=italic guifg=lightgray
 set hidden 
 set number
 set smartindent
