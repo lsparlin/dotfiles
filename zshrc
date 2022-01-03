@@ -76,7 +76,7 @@ ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew osx common-aliases tmux tmuxinator npm vi-mode dirhistory history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git brew macos common-aliases npm vi-mode tmux tmuxinator dirhistory history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
 
 # history-substring-search = ZSH_CUSTOM/plugins/zsh-history-substring-search (from git)
 bindkey '^[[A' history-substring-search-up
@@ -125,7 +125,7 @@ export EDITOR='vim'
 
 # Java
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-source ~/.asdf/plugins/java/set-java-home.zsh
+# source ~/.asdf/plugins/java/set-java-home.zsh
 
 ## --- Functions --- ##
 
@@ -216,6 +216,6 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/lewis/Library/Caches/heroku/autocomplete/zsh_set
 ### ---- Appended commands
 ##
 
-. /usr/local/opt/asdf/asdf.sh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh

@@ -11,7 +11,7 @@ brew "figlet"
 brew "fzf"
 brew "gcc"
 brew "gh"
-brew "git"-lfs
+brew "git-lfs"
 brew "gnupg"
 brew "graphviz"
 brew "grc"
