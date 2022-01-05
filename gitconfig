@@ -43,7 +43,7 @@
 [credential]
 	helper = osxkeychain
 [pull]
-	rebase = false
+	rebase = merges
 [init]
 	defaultBranch = main
 [interactive]

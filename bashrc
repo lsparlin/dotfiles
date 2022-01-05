@@ -9,3 +9,5 @@ alias ls='ls -G'
 
 ulimit -n 200000
 ulimit -u 2048
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
