@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 [ -f $HOME/.env_variables.zsh ] && source $HOME/.env_variables.zsh # local env variables
@@ -76,7 +81,7 @@ ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew macos common-aliases npm vi-mode tmux tmuxinator dirhistory history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git brew z macos common-aliases npm vi-mode tmux tmuxinator dirhistory history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
 
 # history-substring-search = ZSH_CUSTOM/plugins/zsh-history-substring-search (from git)
 bindkey '^[[A' history-substring-search-up
@@ -219,3 +224,8 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/lewis/Library/Caches/heroku/autocomplete/zsh_set
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####

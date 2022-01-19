@@ -27,8 +27,8 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType ruby compiler ruby
 
 syntax enable
-hi Visual ctermbg=gray guibg=gray
-hi Comment cterm=italic gui=italic guifg=lightgray
+hi Visual ctermbg=gray 
+hi Comment cterm=italic gui=italic guifg=gray ctermfg=gray
 set hidden 
 set number
 set smartindent

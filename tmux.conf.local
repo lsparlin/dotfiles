@@ -310,3 +310,7 @@ tmux_conf_copy_to_os_clipboard=true
 set -g status-position bottom
 setw -g mouse on
 
+
+# Fig Tmux Integration: Enabled
+source-file ~/.fig/tmux
+# End of Fig Tmux Integration
