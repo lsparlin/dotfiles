@@ -91,7 +91,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export PATH="/Users/lsparlin/.rvm/gems/ruby-2.1.5/bin:/Users/lsparlin/.rvm/gems/ruby-2.1.5@global/bin:/Users/lsparlin/.rvm/rubies/ruby-2.1.5/bin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/elasticsearch/bin:/usr/local/mysql/bin:/Users/lsparlin/.rvm/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
