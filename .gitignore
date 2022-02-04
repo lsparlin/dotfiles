@@ -7,4 +7,5 @@ vim/autoload/*
 vim/bundle/*
 vim/plugged/*
 
+Brewfile.lock.json
 .DS_Store
