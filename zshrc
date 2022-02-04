@@ -72,10 +72,10 @@ KEYTIMEOUT=1
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-SPACESHIP_ROOT=$HOME/dotfiles/zsh-custom/themes/spaceship-prompt
+ZSH_CUSTOM=$HOME/dotfiles/_zsh-custom
+SPACESHIP_ROOT=$ZSH_CUSTOM/themes/spaceship-prompt
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
