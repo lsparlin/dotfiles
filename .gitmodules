@@ -5,17 +5,17 @@
 	path = tmux
 	url = https://github.com/gpakosz/.tmux.git
 [submodule "zsh-custom/themes/spaceship-prompt"]
-	path = zsh-custom/themes/spaceship-prompt
+	path = _zsh-custom/themes/spaceship-prompt
 	url = https://github.com/lsparlin/spaceship-prompt.git
 [submodule "zsh-custom/plugins/zsh-autosuggestions"]
-	path = zsh-custom/plugins/zsh-autosuggestions
+	path = _zsh-custom/plugins/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git
 [submodule "zsh-custom/plugins/zsh-history-substring-search"]
-	path = zsh-custom/plugins/zsh-history-substring-search
+	path = _zsh-custom/plugins/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
 [submodule "zsh-custom/plugins/zsh-syntax-highlighting"]
-	path = zsh-custom/plugins/zsh-syntax-highlighting
+	path = _zsh-custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "configuration/night-owl-iterm2-theme"]
-	path = configuration/night-owl-iterm2-theme
+	path = _configuration/night-owl-iterm2-theme
 	url = https://github.com/jsit/night-owl-iterm2-theme.git
