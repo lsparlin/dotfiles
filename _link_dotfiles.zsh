@@ -6,7 +6,7 @@ if [ "$1" = "live" ]; then
   DRY_RUN=false
 fi
 
-DOTFILES_DIR=$(dirname $file)
+DOTFILES_DIR=$(dirname $(realpath -s $0))
 UNDERSCORE_PATTERN="^_" #  to exclude files beginning with _(underscore)
 
 # Files that should be linked to $HOME as dotfiles
@@ -26,9 +26,9 @@ if $DRY_RUN; then
   echo "_______"
 
   list_linkable_dotfiles |\
-    xargs -I% echo "Would link $fg_bold[green]~/.%$reset_color -> $fg[blue]./%$reset_color"
+    xargs -I% echo "Would link $fg_bold[green]~/.%$reset_color -> $fg[blue]$DOTFILES_DIR/%$reset_color"
   list_linkable_files|\
-    xargs -I% echo "Would link $fg_bold[green]~/%$reset_color -> $fg[blue]./_%$reset_color"
+    xargs -I% echo "Would link $fg_bold[green]~/%$reset_color -> $fg[blue]$DOTFILES_DIR/_%$reset_color"
 
   echo "_______"
 
@@ -41,4 +41,7 @@ else
 
   # ohmyzsh looks for theme files in $ZSH_CUSTOM/themes
   ln -fvhs $DOTFILES_DIR/_zsh-custom/themes/spaceship-prompt/spaceship.zsh $DOTFILES_DIR/_zsh-custom/themes/spaceship.zsh-theme
+
+  # Symlink neovim config file that inherits vim settings
+  ln -fvhs $DOTFILES_DIR/_configuration/nvim $HOME/.config/nvim
 fi
