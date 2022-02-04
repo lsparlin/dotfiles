@@ -1,1 +1,7 @@
+# This is the global gitignore file
+#
+# rules here are handy for ignoring changes locally that you
+# don't want to add to your project's .gitignore for some reason
+
 *.swp
+
