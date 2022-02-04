@@ -130,7 +130,9 @@ export EDITOR='vim'
 
 # Java
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-. ~/.asdf/plugins/java/set-java-home.zsh
+if [ -f "${HOME}/.asdf/plugins/java/set-java-home.zsh" ]; then
+  . ~/.asdf/plugins/java/set-java-home.zsh
+fi
 
 ## --- Functions --- ##
 
@@ -223,7 +225,7 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/lewis/Library/Caches/heroku/autocomplete/zsh_set
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-. /usr/local/opt/asdf/libexec/asdf.sh
+. $(brew --prefix asdf)/libexec/asdf.sh
 
 #### FIG ENV VARIABLES ####
 # Please make sure this block is at the end of this file.
