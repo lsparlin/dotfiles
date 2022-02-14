@@ -23,6 +23,7 @@ Plug 'dense-analysis/ale'
 Plug 'fladson/vim-kitty'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-locfile'}
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'github/copilot.vim'
 
 call plug#end()

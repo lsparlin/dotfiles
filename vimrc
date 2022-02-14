@@ -14,7 +14,7 @@ so ~/.vim/plugins.vim
 "   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "   set termguicolors
 " endif
-colorscheme spaceduck
+colorscheme dracula
 
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -27,7 +27,7 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType ruby compiler ruby
 
 syntax enable
-hi Visual ctermbg=gray 
+" hi Visual ctermbg=gray 
 hi Comment cterm=italic gui=italic guifg=gray ctermfg=gray
 set hidden 
 set number
