@@ -36,9 +36,6 @@ else
   list_linkable_dotfiles | xargs -I% ln -fvhs $DOTFILES_DIR/% $HOME/.%
   list_linkable_files | xargs -I% ln -fvhs $DOTFILES_DIR/_% $HOME/%
 
-  # ~/.tmux.conf is the expected location for tmux config
-  ln -fvhs $DOTFILES_DIR/tmux/.tmux.conf $HOME/.tmux.conf
-
   # ohmyzsh looks for theme files in $ZSH_CUSTOM/themes
   ln -fvhs $DOTFILES_DIR/_zsh-custom/themes/spaceship-prompt/spaceship.zsh $DOTFILES_DIR/_zsh-custom/themes/spaceship.zsh-theme
 
