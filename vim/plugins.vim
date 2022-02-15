@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
-
-Plug 'preservim/nerdtree'
+ 
 Plug 'itchyny/lightline.vim'
+Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-rails'
@@ -20,7 +20,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'dense-analysis/ale'
-Plug 'fladson/vim-kitty'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-locfile'}
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'dracula/vim', { 'as': 'dracula' }
