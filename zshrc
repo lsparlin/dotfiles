@@ -3,9 +3,13 @@
 # Please make sure this block is at the start of this file.
 [ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
 #### END FIG ENV VARIABLES ####
+#
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-[ -f $HOME/.env_variables.zsh ] && source $HOME/.env_variables.zsh # local env variables
+
+# local env variables
+[ -f $HOME/.env_variables.zsh ] && source $HOME/.env_variables.zsh 
+[ -f $HOME/.env_settings.zsh ] && source $HOME/.env_settings.zsh 
 [ -f $HOME/.local_scripts.zsh ] && source $HOME/.local_scripts.zsh 
 #NODE_PATH='/usr/local/lib/node_modules'
 GREP_COLOR='1;32'
