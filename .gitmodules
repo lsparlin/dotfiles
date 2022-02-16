@@ -13,9 +13,6 @@
 [submodule "zsh-custom/plugins/zsh-syntax-highlighting"]
 	path = _zsh-custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "configuration/night-owl-iterm2-theme"]
-	path = _configuration/night-owl-iterm2-theme
-	url = https://github.com/jsit/night-owl-iterm2-theme.git
 [submodule "tpm"]
 	path = tpm
 	url = https://github.com/tmux-plugins/tpm
