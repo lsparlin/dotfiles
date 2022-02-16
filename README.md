@@ -12,7 +12,7 @@ git submodule update --recursive --init
 
 ### Install
 ```bash
-[PATH_TO_DOTFILES]/_configuration/install_homebrew.sh
+[PATH_TO_DOTFILES]/_configuration/install_homebrew
 ```
 OR install here [Homebrew](https://brew.sh)
 
@@ -30,8 +30,7 @@ Automatically link:
 - `.gitconfig`
 - `.gitignore`
 - `.oh-my-zsh`
-- `.tmux`
-- `.tmux.conf.local`
+- `.tmux.conf`
 - `.tmuxinator`
 - `.tool-versions`
 - `.vim`
@@ -41,25 +40,25 @@ Automatically link:
 ### Dry run
 Running the script with no args will dry-run and print out symlinks that would be created.
 ```bash
-[PATH_TO_DOTFILES]/_link_dotfiles.zsh
+[PATH_TO_DOTFILES]/_link_dotfiles
 ```
 
 ### Symlink dotfiles into `$HOME` directory
 Run with argument `live` to create symlinks
 ```bash
-[PATH_TO_DOTFILES]./_link_dotfiles.zsh live
+[PATH_TO_DOTFILES]./_link_dotfiles live
 ```
 
 ## Other helpers
 
 ### Tell MacOS to save screenshots in ~/Downlods
 ```bash
-[PATH_TO_DOTFILES]/_configuration/init_screenshot_dir.sh
+[PATH_TO_DOTFILES]/_configuration/init_screenshot_dir
 ```
 
 ### Italics for terminal
 ```bash
-[PATH_TO_DOTFILES]/_configuration/install_italic_terms.sh
+[PATH_TO_DOTFILES]/_configuration/install_italic_terms
 
 # Remove this line from .tmux.conf.local if not installing italics
 # set -g default-terminal 'tmux-256color-italic'
@@ -68,6 +67,6 @@ Run with argument `live` to create symlinks
 ### Obsidian convenience symlink
 If using Obsidian with iCloud storage, this will symlink that path (which is long) to `~/icloud-obsidian` for easier access from CLI
 ```bash
-[PATH_TO_DOTFILES]/_configuration/link_icloud_obsidian.sh
+[PATH_TO_DOTFILES]/_configuration/link_icloud_obsidian
 ```
 
