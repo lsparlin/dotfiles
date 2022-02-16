@@ -5,6 +5,8 @@ vnoremap . :norm.<CR>
 
 nnoremap <leader>s :set spell!<CR>
 
+nmap <leader>0 :set relativenumber!<CR>
+
 " NERDTree
 nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 nnoremap <silent> <leader>nf :NERDTreeFind<CR>
