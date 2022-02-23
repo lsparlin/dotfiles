@@ -39,25 +39,28 @@ au BufRead,BufNewFile *.dom set filetype=html
 
 " ale settings
 let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 1
-let g:ale_linters = { 'ruby': ['standardrb'] }
-let g:ale_fixers = {
-\  '*': ['remove_trailing_lines', 'trim_whitespace'],
-\  'ruby': ['standardrb'],
-\  'javascript': ['prettier', 'eslint'],
-\}
+let g:ale_lint_on_save = 0
+" let g:ale_linters = { 
+"   \  'ruby': ['standardrb'],
+"   \  'javascript': ['prettier', 'eslint'],
+"   \}
+" let g:ale_fixers = {
+"   \  '*': ['remove_trailing_lines', 'trim_whitespace'],
+"   \  'ruby': ['standardrb'],
+"   \  'javascript': ['prettier', 'eslint'],
+"   \}
 
 " vim-markdown do not auto-indent when typing lists
 let g:vim_markdown_new_list_item_indent = 0
 
 " lightline (pretty status line) settings
 let g:lightline = {
-  \     'colorscheme': 'dracula',
-  \     'active': {
-  \         'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],
-  \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
-  \     },
-  \     'component_function': {
-  \       'gitbranch': 'FugitiveHead'
-  \     }
+  \  'colorscheme': 'dracula',
+  \  'active': {
+  \    'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],
+  \    'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
+  \  },
+  \  'component_function': {
+  \    'gitbranch': 'FugitiveHead'
+  \  }
   \ }
