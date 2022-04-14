@@ -15,7 +15,7 @@ windows:
       root: ~/git
       layout: even-vertical
       panes:
-        - clear; figlet -w $COLUMNS -kc "Dev\!"
+        - clear; figlet -w $COLUMNS -kc "Dev\\!"
         - 
   - updates:
       panes:

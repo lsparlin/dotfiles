@@ -20,7 +20,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 KEYTIMEOUT=1
 
 # zsh-autosuggestions plugin
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#333"
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#333"
 
 # Homebrew completion setup
 if type brew &>/dev/null; then
