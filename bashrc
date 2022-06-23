@@ -1,10 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-export PATH="${PATH}:${HOME}/.local/bin"
-eval "$(fig init bash pre)"
-
-
-
-
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
@@ -17,8 +10,3 @@ ulimit -n 200000
 ulimit -u 2048
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-
-
-# Fig post block. Keep at the bottom of this file.
-eval "$(fig init bash post)"

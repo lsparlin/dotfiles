@@ -1,9 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-export PATH="${PATH}:${HOME}/.local/bin"
-eval "$(fig init zsh pre)"
-
-
-
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_CUSTOM=$HOME/dotfiles/_zsh-custom
@@ -24,8 +18,3 @@ export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/
 source $ZSH/oh-my-zsh.sh
 
 ulimit -n 8192
-
-
-
-# Fig post block. Keep at the bottom of this file.
-eval "$(fig init zsh post)"
