@@ -40,5 +40,5 @@ else
   ln -fvhs $DOTFILES_DIR/_zsh-custom/themes/spaceship-prompt/spaceship.zsh $DOTFILES_DIR/_zsh-custom/themes/spaceship.zsh-theme
 
   # Symlink neovim config file that inherits vim settings
-  ln -fvhs $DOTFILES_DIR/_configuration/nvim $HOME/.config/nvim
+  ln -fvhsn $DOTFILES_DIR/_configuration/nvim $HOME/.config/nvim
 fi
