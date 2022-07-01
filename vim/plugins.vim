@@ -25,4 +25,8 @@ Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'github/copilot.vim'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+
 call plug#end()
