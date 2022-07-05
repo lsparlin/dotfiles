@@ -18,3 +18,5 @@ export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/
 source $ZSH/oh-my-zsh.sh
 
 ulimit -n 8192
+
+eval spaceship_vi_mode_enable
