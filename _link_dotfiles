@@ -39,6 +39,10 @@ else
   # ohmyzsh looks for theme files in $ZSH_CUSTOM/themes
   ln -fvhs $DOTFILES_DIR/_zsh-custom/themes/spaceship-prompt/spaceship.zsh $DOTFILES_DIR/_zsh-custom/themes/spaceship.zsh-theme
 
-  # Symlink neovim config file that inherits vim settings
+  # Symlink app-specific configs (~/.configs/)
+  #
+  # nvim config file that inherits vim settings
   ln -fvhsn $DOTFILES_DIR/_configuration/nvim $HOME/.config/nvim
+  # kitty terminal config files
+  ln -fvhsn $DOTFILES_DIR/_configuration/kitty $HOME/.config/kitty
 fi
