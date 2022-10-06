@@ -1,3 +1,4 @@
 {
-  "eslint.codeActionsOnSave.mode": "problems"
+  "eslint.codeActionsOnSave.mode": "problems",
+  "suggest.noselect": true
 }
