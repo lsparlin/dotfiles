@@ -34,22 +34,6 @@ set breakindent
 set breakindentopt=sbr
 set showbreak=↪>\
 
-" custom file type mappings
-au BufRead,BufNewFile *.dom set filetype=html
-
-" ale settings
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 0
-" let g:ale_linters = { 
-"   \  'ruby': ['standardrb'],
-"   \  'javascript': ['prettier', 'eslint'],
-"   \}
-" let g:ale_fixers = {
-"   \  '*': ['remove_trailing_lines', 'trim_whitespace'],
-"   \  'ruby': ['standardrb'],
-"   \  'javascript': ['prettier', 'eslint'],
-"   \}
-
 " vim-markdown do not auto-indent when typing lists
 let g:vim_markdown_new_list_item_indent = 0
 
