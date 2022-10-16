@@ -51,24 +51,24 @@ function M.run()
     -- Put this at the end after all plugins
     if packer_bootstrap then
       require('packer').sync()
-    end
-
-    require('lualine').setup({
-        sections = {
-          lualine_b = { 'branch' },
-          lualine_x = { 'encoding', 'filetype' },
-        },
-      })
-    require('telescope').setup({
-        pickers = {
-          find_files = {
-            theme = "dropdown",
+    else
+      require('lualine').setup({
+          sections = {
+            lualine_b = { 'branch' },
+            lualine_x = { 'encoding', 'filetype' },
           },
-          git_files = {
-            theme = "dropdown",
-          }
-        },
-      })
+        })
+      require('telescope').setup({
+          pickers = {
+            find_files = {
+              theme = "dropdown",
+            },
+            git_files = {
+              theme = "dropdown",
+            }
+          },
+        })
+    end
   end)
 end
 
