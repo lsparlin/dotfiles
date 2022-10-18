@@ -65,6 +65,9 @@ function M.run()
             },
             git_files = {
               theme = "dropdown",
+            },
+            live_grep = {
+              theme = "dropdown",
             }
           },
         })
