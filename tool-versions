@@ -1,5 +1,5 @@
 ruby 3.0.4
 nodejs lts
-java adoptopenjdk-11.0.15+10
+java microsoft-17.0.5
 elixir 1.13.4
 erlang 23.3.4.15

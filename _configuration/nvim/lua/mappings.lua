@@ -20,12 +20,17 @@ function M.run()
   -- Telescope
   map('n', '<leader>tf', ':Telescope find_files<CR>', { silent = true })
   map('n', '<leader>tg', ':Telescope git_files<CR>', { silent = true })
-  map('n', '<leader>tb', ':Telescope buffers<CR>', { silent = true })
   map('n', '<leader>th', ':Telescope help_tags<CR>', { silent = true })
   map('n', '<leader>tr', ':Telescope live_grep<CR>', { silent = true })
+  map('n', '<leader>tbuf', ':Telescope buffers<CR>', { silent = true })
+  map('n', '<leader>treg', ':Telescope registers<CR>', { silent = true })
   -- COC code navigation.
   map('n', 'gd', '<Plug>(coc-definition)', { noremap = false, silent = true })
   map('n', 'gr','<Plug>(coc-references)', { noremap = false, silent = true })
+  -- COC java development
+  map('n', '<leader>jvb', ':! ./gradlew build<CR>', { silent = true })
+  map('n', '<leader>jvt', ':! ./gradlew test<CR>', { silent = true })
+  map('n', '<leader>jvoi', ':CocCommand java.action.organizeImports<CR>', { silent = true })
 end
 
 return M

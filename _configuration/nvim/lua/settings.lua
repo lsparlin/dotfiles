@@ -12,13 +12,11 @@ function M.run ()
   set.filetype.indent = "on" -- Enable filetype-specific indenting
   set.filetype.plugin = "on"
   set.encoding = "utf-8"
-  set.expandtab = true
   set.hidden = true
   set.number = true
   set.smartindent = true
   set.hlsearch = true
   set.incsearch = true
-  set.expandtab = true
   set.scrolljump=5
   set.scrolloff=3
   set.sidescroll=2
@@ -26,6 +24,7 @@ function M.run ()
   set.wildmode="list:longest,full"
   set.tabstop = 2
   set.shiftwidth = 2
+  set.expandtab = true
   set.foldmethod="syntax"
   vim.api.nvim_create_autocmd({"BufWinEnter"}, {
       pattern = {"?*"},
