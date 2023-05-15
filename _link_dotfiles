@@ -45,4 +45,6 @@ else
   ln -fvhsn $DOTFILES_DIR/_configuration/nvim $HOME/.config/nvim
   # kitty terminal config files
   ln -fvhsn $DOTFILES_DIR/_configuration/kitty $HOME/.config/kitty
+  # bat config file
+  ln -fvhsn $DOTFILES_DIR/_configuration/bat $HOME/.config/bat
 fi

@@ -46,6 +46,13 @@ function M.run()
     }
     use 'nvim-treesitter/nvim-treesitter'
     use 'github/copilot.vim'
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        vim.o.timeout = true
+        vim.o.timeoutlen = 100
+      end
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
@@ -71,6 +78,8 @@ function M.run()
             }
           },
         })
+      require("which-key").setup {
+      }
     end
   end)
 end
