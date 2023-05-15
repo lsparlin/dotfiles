@@ -1,4 +1,12 @@
 {
   "eslint.codeActionsOnSave.mode": "problems",
-  "suggest.noselect": true
+  "suggest.noselect": true,
+
+  "languageserver": {
+    "standardrb": {
+      "command": "standardrb",
+      "args": ["--lsp"],
+      "filetypes": ["ruby"]
+    }
+  }
 }
