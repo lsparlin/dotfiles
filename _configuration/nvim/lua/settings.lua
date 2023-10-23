@@ -25,11 +25,12 @@ function M.run ()
   set.tabstop = 2
   set.shiftwidth = 2
   set.expandtab = true
-  set.foldmethod="syntax"
-  vim.api.nvim_create_autocmd({"BufWinEnter"}, {
-      pattern = {"?*"},
-      command = "silent! :%foldopen!",
-    })
+  -- DO NOT NEED THIS with plugin ufo
+  -- set.foldmethod="syntax"
+  -- vim.api.nvim_create_autocmd({"BufWinEnter"}, {
+  --     pattern = {"?*"},
+  --     command = "silent! :%foldopen!",
+  --   })
 
   set.wrap = true
   set.linebreak = true
@@ -38,6 +39,20 @@ function M.run ()
   set.showbreak="↪> "
 
   g.vim_markdown_new_list_item_indent = 0
+
+  -- garyjohnson/vim-fubitive
+  -- OCLC project git settings
+  g.fubitive_domain_pattern = "git.ent.oclc.org"
+  g.fubitive_default_protocol = "http://"
+
+  -- nvim-ufo settings
+  vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+  vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+
+  vim.o.foldcolumn = '0' -- '0' is not bad
+  vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+  vim.o.foldlevelstart = 99
+  vim.o.foldenable = true
 end
 
 return M

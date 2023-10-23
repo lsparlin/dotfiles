@@ -11,7 +11,7 @@ SPACESHIP_ROOT=$ZSH_CUSTOM/themes/spaceship-prompt
 # SPACESHIP customizations
 
 # prompt
-SPACESHIP_CHAR_SYMBOL="☕️>_"
+SPACESHIP_CHAR_SYMBOL="|||>"
 SPACESHIP_PROMPT_ORDER=(user dir host git_branch ruby exec_time line_sep battery vi_mode jobs char) 
 # SPACESHIP_GIT_BRANCH_PREFIX=" "
 SPACESHIP_GIT_BRANCH_PREFIX="🌿"

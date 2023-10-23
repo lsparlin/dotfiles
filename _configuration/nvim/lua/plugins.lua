@@ -24,6 +24,7 @@ function M.run()
     use 'sheerun/vim-polyglot'
     use 'tpope/vim-rails'
     use 'tpope/vim-liquid'
+    use 'NoahTheDuke/vim-just' -- justfile support (https://github.com/casey/just)
     use 'tpope/vim-apathy'
     use 'kana/vim-textobj-user'
     use 'nelstrom/vim-textobj-rubyblock'
@@ -32,6 +33,10 @@ function M.run()
     use 'tpope/vim-capslock'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
+    use { -- http protocol support for git-fugitive
+      'garyjohnson/vim-fubitive',
+      branch = 'allow-http-protocol'
+    }
     use 'tpope/vim-surround'
     use 'dhruvasagar/vim-open-url'
     use 'Mofiqul/dracula.nvim'
@@ -45,6 +50,7 @@ function M.run()
       requires = 'nvim-lua/plenary.nvim'
     }
     use 'nvim-treesitter/nvim-treesitter'
+    use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' } -- improved code folds
     use 'github/copilot.vim'
     use {
       "folke/which-key.nvim",
@@ -80,6 +86,7 @@ function M.run()
         })
       require("which-key").setup {
       }
+      require('ufo').setup()
     end
   end)
 end
