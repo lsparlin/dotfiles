@@ -6,7 +6,7 @@ if [ "$1" = "live" ]; then
   DRY_RUN=false
 fi
 
-DOTFILES_DIR=$(dirname $(realpath -s $0))
+DOTFILES_DIR=$(realpath)
 UNDERSCORE_PATTERN="^_" #  to exclude files beginning with _(underscore)
 
 # Files that should be linked to $HOME as dotfiles
@@ -30,6 +30,15 @@ if $DRY_RUN; then
   list_linkable_files|\
     xargs -I% echo "Would link $fg_bold[green]~/%$reset_color -> $fg[blue]$DOTFILES_DIR/_%$reset_color"
 
+  echo "Would link $fg_bold[green]~/.config/nvim/ -> $fg[blue]$DOTFILES_DIR/_configuration/nvim/$reset_color"
+  echo "Would link $fg_bold[green]~/.config/kitty/ -> $fg[blue]$DOTFILES_DIR/_configuration/kitty/$reset_color"
+  echo "Would link $fg_bold[green]~/.config/bat -> $fg[blue]$DOTFILES_DIR/_configuration/bat/$reset_color"
+  echo "Would link $fg_bold[green]~/.config/fish/fish_plugins -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/fish_plugins$reset_color"
+  echo "Would link $fg_bold[green]~/.config/fish/fish_variables -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/fish_variables$reset_color"
+  echo "Would link $fg_bold[green]~/.config/fish/config.fish -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/config.fish$reset_color"
+  ls -l1 $DOTFILES_DIR/_configuration/fish_things/aliases |\
+    xargs -I% echo "Would link $fg_bold[green]~/.config/fish/functions/% -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/aliases/%$reset_color"
+
   echo "_______"
 
 else
@@ -37,6 +46,7 @@ else
   list_linkable_files | xargs -I% ln -fvhs $DOTFILES_DIR/_% $HOME/%
 
   # ohmyzsh looks for theme files in $ZSH_CUSTOM/themes
+  # *deprecated if I start using fish shell
   ln -fvhs $DOTFILES_DIR/_zsh-custom/themes/spaceship-prompt/spaceship.zsh $DOTFILES_DIR/_zsh-custom/themes/spaceship.zsh-theme
 
   # Symlink app-specific configs (~/.configs/)
@@ -47,4 +57,10 @@ else
   ln -fvhsn $DOTFILES_DIR/_configuration/kitty $HOME/.config/kitty
   # bat config file
   ln -fvhsn $DOTFILES_DIR/_configuration/bat $HOME/.config/bat
+  ln -fvhs $DOTFILES_DIR/_configuration/fish_things/fish_plugins $HOME/.config/fish/fish_plugins
+  ln -fvhs $DOTFILES_DIR/_configuration/fish_things/fish_variables $HOME/.config/fish/fish_variables
+  ln -fvhs $DOTFILES_DIR/_configuration/fish_things/config.fish $HOME/.config/fish/config.fish
+
+  ls -l1 $DOTFILES_DIR/_configuration/fish_things/aliases |\
+    xargs -I% ln -fvhs $DOTFILES_DIR/_configuration/fish_things/aliases/% $HOME/.config/fish/functions/%
 fi
