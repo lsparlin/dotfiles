@@ -1,94 +1,99 @@
--- bootstrap packer plugin if not installed
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
-end
-
-local packer_bootstrap = ensure_packer()
 local M = {}
 
+-- setup for lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local setup_lazy_plugin_manager = function()
+  if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+      })
+  end
+  vim.opt.rtp:prepend(lazypath)
+end
+
 function M.run()
-  require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
-    use {
+  setup_lazy_plugin_manager()
+ 
+  require("lazy").setup({
+    {
       'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
-    use 'preservim/nerdtree'
-    use 'sheerun/vim-polyglot'
-    use 'tpope/vim-rails'
-    use 'tpope/vim-liquid'
-    use 'NoahTheDuke/vim-just' -- justfile support (https://github.com/casey/just)
-    use 'tpope/vim-apathy'
-    use 'kana/vim-textobj-user'
-    use 'nelstrom/vim-textobj-rubyblock'
-    use 'tpope/vim-bundler'
-    use 'tpope/vim-endwise'
-    use 'tpope/vim-capslock'
-    use 'tpope/vim-commentary'
-    use 'tpope/vim-fugitive'
-    use { -- http protocol support for git-fugitive
+      dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
+      config = function()
+        require('lualine').setup({
+            sections = {
+              lualine_b = { 'branch' },
+              lualine_x = { 'encoding', 'filetype' },
+            },
+          })
+      end
+    },
+    'preservim/nerdtree',
+    'sheerun/vim-polyglot',
+    'tpope/vim-rails',
+    'tpope/vim-liquid',
+    'NoahTheDuke/vim-just', -- justfile support (https://github.com/casey/just)
+    'tpope/vim-apathy',
+    'kana/vim-textobj-user',
+    -- 'nelstrom/vim-textobj-rubyblock',
+    'tpope/vim-bundler',
+    'tpope/vim-endwise',
+    'tpope/vim-capslock',
+    'tpope/vim-commentary',
+    'tpope/vim-fugitive',
+    { -- http protocol support for git-fugitive
       'garyjohnson/vim-fubitive',
       branch = 'allow-http-protocol'
-    }
-    use 'tpope/vim-surround'
-    use 'dhruvasagar/vim-open-url'
-    use 'Mofiqul/dracula.nvim'
-    use 'jlanzarotta/bufexplorer'
-    use {
+    },
+    'tpope/vim-surround',
+    'dhruvasagar/vim-open-url',
+    'Mofiqul/dracula.nvim',
+    'jlanzarotta/bufexplorer',
+    {
       'neoclide/coc.nvim',
       branch = 'release'
-    }
-    use {
+    },
+    {
       'nvim-telescope/telescope.nvim',
-      requires = 'nvim-lua/plenary.nvim'
-    }
-    use 'nvim-treesitter/nvim-treesitter'
-    use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' } -- improved code folds
-    use 'github/copilot.vim'
-    use {
+      dependencies = 'nvim-lua/plenary.nvim',
+      config = function()
+        require('telescope').setup({
+            pickers = {
+              find_files = {
+                theme = "dropdown",
+              },
+              git_files = {
+                theme = "dropdown",
+              },
+              live_grep = {
+                theme = "dropdown",
+              }
+            },
+          })
+      end
+    },
+    'nvim-treesitter/nvim-treesitter',
+    { -- improved code folds
+      'kevinhwang91/nvim-ufo',
+      dependencies = 'kevinhwang91/promise-async',
+      config = function()
+        require('ufo').setup()
+      end
+    },
+    'github/copilot.vim',
+    { -- guide for leader key bindings
       "folke/which-key.nvim",
       config = function()
         vim.o.timeout = true
         vim.o.timeoutlen = 100
+        require("which-key").setup()
       end
     }
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if packer_bootstrap then
-      require('packer').sync()
-    else
-      require('lualine').setup({
-          sections = {
-            lualine_b = { 'branch' },
-            lualine_x = { 'encoding', 'filetype' },
-          },
-        })
-      require('telescope').setup({
-          pickers = {
-            find_files = {
-              theme = "dropdown",
-            },
-            git_files = {
-              theme = "dropdown",
-            },
-            live_grep = {
-              theme = "dropdown",
-            }
-          },
-        })
-      require("which-key").setup {
-      }
-      require('ufo').setup()
-    end
-  end)
+  })
 end
 
 return M
