@@ -34,12 +34,10 @@ function M.run()
     },
     'preservim/nerdtree',
     'sheerun/vim-polyglot',
+    'NoahTheDuke/vim-just', -- justfile support (https://github.com/casey/just)
     'tpope/vim-rails',
     'tpope/vim-liquid',
-    'NoahTheDuke/vim-just', -- justfile support (https://github.com/casey/just)
     'tpope/vim-apathy',
-    'kana/vim-textobj-user',
-    -- 'nelstrom/vim-textobj-rubyblock',
     'tpope/vim-bundler',
     'tpope/vim-endwise',
     'tpope/vim-capslock',
@@ -50,7 +48,7 @@ function M.run()
       branch = 'allow-http-protocol'
     },
     'tpope/vim-surround',
-    'dhruvasagar/vim-open-url',
+    'dhruvasagar/vim-open-url', -- open URL and search functionality
     'Mofiqul/dracula.nvim',
     'jlanzarotta/bufexplorer',
     {
@@ -59,7 +57,7 @@ function M.run()
     },
     {
       'nvim-telescope/telescope.nvim',
-      dependencies = 'nvim-lua/plenary.nvim',
+      dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
       config = function()
         require('telescope').setup({
             pickers = {
@@ -76,7 +74,6 @@ function M.run()
           })
       end
     },
-    'nvim-treesitter/nvim-treesitter',
     { -- improved code folds
       'kevinhwang91/nvim-ufo',
       dependencies = 'kevinhwang91/promise-async',
@@ -88,10 +85,12 @@ function M.run()
     { -- guide for leader key bindings
       "folke/which-key.nvim",
       config = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 100
         require("which-key").setup()
-      end
+      end,
+      init = function()
+        vim.o.timeout = true
+        vim.o.timeoutlen = 400
+      end,
     }
   })
 end

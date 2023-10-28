@@ -3,6 +3,7 @@ local function requireAndReset(name)
   return require(name)
 end
 
+vim.g.mapleader = ','
 requireAndReset('plugins').run()
 
 requireAndReset('settings').run()

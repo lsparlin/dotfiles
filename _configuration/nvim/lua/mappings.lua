@@ -21,7 +21,7 @@ function M.run()
   map('n', '<leader>tf', ':Telescope find_files<CR>', { silent = true })
   map('n', '<leader>tg', ':Telescope git_files<CR>', { silent = true })
   map('n', '<leader>th', ':Telescope help_tags<CR>', { silent = true })
-  map('n', '<leader>tr', ':Telescope live_grep<CR>', { silent = true })
+  map('n', '<leader>tr', ':Telescope live_grep<CR>')
   map('n', '<leader>tbuf', ':Telescope buffers<CR>', { silent = true })
   map('n', '<leader>treg', ':Telescope registers<CR>', { silent = true })
   -- COC code navigation.
