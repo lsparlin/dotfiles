@@ -24,13 +24,14 @@ function M.run()
   map('n', '<leader>tr', ':Telescope live_grep<CR>')
   map('n', '<leader>tbuf', ':Telescope buffers<CR>', { silent = true })
   map('n', '<leader>treg', ':Telescope registers<CR>', { silent = true })
-  -- COC code navigation.
-  map('n', 'gd', '<Plug>(coc-definition)', { noremap = false, silent = true })
-  map('n', 'gr','<Plug>(coc-references)', { noremap = false, silent = true })
-  -- COC java development
+  -- code navigation.
+  --  add keybinding for lspsaga diagnostics
+  map('n', '<leader>cd', ':Lspsaga show_line_diagnostics<CR>', { silent = true })
+  map('n', 'gd', ':Lspsaga goto_definition<CR>', { silent = true })
+  map('n', 'gr',':Lspsaga finder<CR>', { silent = true })
+  -- java development
   map('n', '<leader>jvb', ':! ./gradlew build<CR>', { silent = true })
   map('n', '<leader>jvt', ':! ./gradlew test<CR>', { silent = true })
-  map('n', '<leader>jvoi', ':CocCommand java.action.organizeImports<CR>', { silent = true })
 end
 
 return M
