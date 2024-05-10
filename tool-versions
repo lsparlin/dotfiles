@@ -1,5 +1,5 @@
-ruby 3.0.4
-nodejs lts
+ruby 3.3.0
+nodejs 21.7.1
 java microsoft-17.0.5
 elixir 1.13.4
 erlang 23.3.4.15
