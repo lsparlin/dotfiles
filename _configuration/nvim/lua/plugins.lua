@@ -31,6 +31,43 @@ function M.run()
           })
       end
     },
+    {
+      -- mini.nvim is a minimalistic plugin library
+      -- https://github.com/echasnovski/mini.nvim
+      'echasnovski/mini.nvim',
+      version = false,
+      config = function()
+        miniclue = require('mini.clue')
+        require('mini.starter').setup()
+        require('mini.comment').setup() -- code comment keybindings
+        require('mini.surround').setup() -- text surround keybindings
+        require('mini.clue').setup({ -- mini.clue is like which-key
+            triggers = {
+              -- Leader triggers
+              { mode = 'n', keys = '<Leader>' },
+              { mode = 'x', keys = '<Leader>' },
+              -- `g` key
+              { mode = 'n', keys = 'g' },
+              { mode = 'x', keys = 'g' },
+              -- Window commands
+              { mode = 'n', keys = '<C-w>' },
+              -- `z` key
+              { mode = 'n', keys = 'z' },
+              { mode = 'x', keys = 'z' },
+            },
+            window = { delay = 500 },
+            clues = {
+              -- Enhance this by adding descriptions for <Leader> mapping groups
+              miniclue.gen_clues.builtin_completion(),
+              miniclue.gen_clues.g(),
+              miniclue.gen_clues.registers(),
+              miniclue.gen_clues.windows(),
+              miniclue.gen_clues.z(),
+            },
+          })
+      end
+
+    },
     'preservim/nerdtree',
     'sheerun/vim-polyglot',
     'NoahTheDuke/vim-just', -- justfile support (https://github.com/casey/just)
@@ -39,13 +76,12 @@ function M.run()
     'tpope/vim-bundler',
     'tpope/vim-endwise',
     'tpope/vim-capslock',
-    'tpope/vim-commentary',
     'tpope/vim-fugitive',
     { -- http protocol support for git-fugitive
       'garyjohnson/vim-fubitive',
       branch = 'allow-http-protocol'
     },
-    'tpope/vim-surround',
+    -- 'tpope/vim-surround',
     'dhruvasagar/vim-open-url', -- open URL and search functionality
     'Mofiqul/dracula.nvim',
     'jlanzarotta/bufexplorer',
@@ -110,6 +146,7 @@ function M.run()
         "L3MON4D3/LuaSnip", -- snippet engine
         "saadparwaiz1/cmp_luasnip", -- for lua autocompletion
         "onsails/lspkind.nvim", -- vs-code like pictograms
+        "mfussenegger/nvim-lint", -- linting
       },
       config = function()
         local cmp = require("cmp")
@@ -159,16 +196,6 @@ function M.run()
       end
     },
     'github/copilot.vim',
-    { -- guide for leader key bindings
-      "folke/which-key.nvim",
-      config = function()
-        require("which-key").setup()
-      end,
-      init = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 400
-      end,
-    }
   })
 end
 
