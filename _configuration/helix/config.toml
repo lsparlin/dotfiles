@@ -1,0 +1,7 @@
+theme = "dracula"
+
+[keys.normal]
+X = "extend_line_above" # do the opposite of "x"
+
+[keys.select]
+X = "extend_line_above" # do the opposite of "x"

@@ -1,0 +1,7 @@
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+[[language]]
+name = "typescript"
+language-servers = [ "typescript-language-server", "eslint"]
