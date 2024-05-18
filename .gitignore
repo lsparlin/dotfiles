@@ -1,4 +1,4 @@
-backup/
+	backup/
 vim/autoload
 vim/bundle
 vim/plugged
@@ -8,6 +8,8 @@ vim/bundle/*
 vim/plugged/*
 
 _configuration/nvim/plugin/*
+_configuration/nvim/lazy-lock.json
+_configuration/fish_things/fish_variables
 
 Brewfile.lock.json
 .DS_Store
