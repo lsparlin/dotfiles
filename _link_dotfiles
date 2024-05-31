@@ -60,6 +60,8 @@ else
   ln -fvhs $DOTFILES_DIR/_configuration/fish_things/fish_plugins $HOME/.config/fish/fish_plugins
   ln -fvhs $DOTFILES_DIR/_configuration/fish_things/fish_variables $HOME/.config/fish/fish_variables
   ln -fvhs $DOTFILES_DIR/_configuration/fish_things/config.fish $HOME/.config/fish/config.fish
+  mkdir ~/.config/wezterm
+  ln -fvhs $DOTFILES_DIR/_configuration/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua
 
   ls -l1 $DOTFILES_DIR/_configuration/fish_things/aliases |\
     xargs -I% ln -fvhs $DOTFILES_DIR/_configuration/fish_things/aliases/% $HOME/.config/fish/functions/%
