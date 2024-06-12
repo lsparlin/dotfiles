@@ -2,7 +2,9 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-fzf_configure_bindings --directory=\cf
+# if fzf is installed 
+# setup fzf keybindings (per homebrew instructions)
+which fzf >/dev/null && fzf --fish | source || echo "INFO: fzf not installed"
 
 # This does not seem to work in all environments
 # source /usr/local/opt/asdf/libexec/asdf.fish
