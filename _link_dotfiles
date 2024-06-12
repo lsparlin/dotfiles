@@ -37,6 +37,8 @@ if $DRY_RUN; then
   echo "Would link $fg_bold[green]~/.config/fish/fish_plugins -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/fish_plugins$reset_color"
   echo "Would link $fg_bold[green]~/.config/fish/fish_variables -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/fish_variables$reset_color"
   echo "Would link $fg_bold[green]~/.config/fish/config.fish -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/config.fish$reset_color"
+  echo "Would link $fg_bold[green]~/.config/helix/ -> $fg[blue]$DOTFILES_DIR/_configuration/helix/$reset_color"
+  echo "Would link $fg_bold[green]~/.config/wezterm/ -> $fg[blue]$DOTFILES_DIR/_configuration/wezterm/$reset_color"
   ls -l1 $DOTFILES_DIR/_configuration/fish_things/aliases |\
     xargs -I% echo "Would link $fg_bold[green]~/.config/fish/functions/% -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/aliases/%$reset_color"
 
@@ -64,8 +66,8 @@ else
   ln -fvhs $DOTFILES_DIR/_configuration/fish_things/fish_plugins $HOME/.config/fish/fish_plugins
   ln -fvhs $DOTFILES_DIR/_configuration/fish_things/fish_variables $HOME/.config/fish/fish_variables
   ln -fvhs $DOTFILES_DIR/_configuration/fish_things/config.fish $HOME/.config/fish/config.fish
-  mkdir ~/.config/wezterm
-  ln -fvhs $DOTFILES_DIR/_configuration/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua
+  ln -fvhsn $DOTFILES_DIR/_configuration/helix $HOME/.config/helix
+  ln -fvhsn $DOTFILES_DIR/_configuration/wezterm $HOME/.config/wezterm
 
   ls -l1 $DOTFILES_DIR/_configuration/fish_things/aliases |\
     xargs -I% ln -fvhs $DOTFILES_DIR/_configuration/fish_things/aliases/% $HOME/.config/fish/functions/%
