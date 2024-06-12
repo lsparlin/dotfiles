@@ -39,7 +39,6 @@ function M.run()
       config = function()
         miniclue = require('mini.clue')
         require('mini.starter').setup()
-        require('mini.comment').setup() -- code comment keybindings
         require('mini.surround').setup() -- text surround keybindings
         require('mini.clue').setup({ -- mini.clue is like which-key
             triggers = {
@@ -69,7 +68,7 @@ function M.run()
 
     },
     'preservim/nerdtree',
-    'sheerun/vim-polyglot',
+    -- 'sheerun/vim-polyglot',
     'NoahTheDuke/vim-just', -- justfile support (https://github.com/casey/just)
     'tpope/vim-rails',
     'tpope/vim-apathy',
@@ -121,6 +120,7 @@ function M.run()
       'nvim-telescope/telescope.nvim',
       dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
       config = function()
+        require('nvim-treesitter').setup()
         require('telescope').setup({
             pickers = {
               find_files = {
