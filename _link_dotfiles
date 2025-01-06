@@ -32,6 +32,7 @@ if $DRY_RUN; then
 
   echo "Would link $fg_bold[green]~/.config/nvim/ -> $fg[blue]$DOTFILES_DIR/_configuration/nvim/$reset_color"
   echo "Would link $fg_bold[green]~/.config/kitty/ -> $fg[blue]$DOTFILES_DIR/_configuration/kitty/$reset_color"
+  echo "Would link $fg_bold[green]~/.config/ghostty/ -> $fg[blue]$DOTFILES_DIR/_configuration/ghostty/$reset_color"
   echo "Would link $fg_bold[green]~/.config/bat -> $fg[blue]$DOTFILES_DIR/_configuration/bat/$reset_color"
   echo "Would link $fg_bold[green]~/.config/fish/fish_plugins -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/fish_plugins$reset_color"
   echo "Would link $fg_bold[green]~/.config/fish/fish_variables -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/fish_variables$reset_color"
@@ -55,6 +56,8 @@ else
   ln -fvhsn $DOTFILES_DIR/_configuration/nvim $HOME/.config/nvim
   # kitty terminal config files
   ln -fvhsn $DOTFILES_DIR/_configuration/kitty $HOME/.config/kitty
+  # ghostty terminal config files
+  ln -fvhsn $DOTFILES_DIR/_configuration/ghostty $HOME/.config/ghostty
   # bat config file
   ln -fvhsn $DOTFILES_DIR/_configuration/bat $HOME/.config/bat
   ln -fvhs $DOTFILES_DIR/_configuration/fish_things/fish_plugins $HOME/.config/fish/fish_plugins
