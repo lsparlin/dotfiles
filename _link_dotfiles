@@ -58,6 +58,7 @@ else
   ln -fvhsn $DOTFILES_DIR/_configuration/kitty $HOME/.config/kitty
   # ghostty terminal config files
   ln -fvhsn $DOTFILES_DIR/_configuration/ghostty $HOME/.config/ghostty
+  ln -fvhsn $DOTFILES_DIR/_configuration/helix $HOME/.config/helix
   # bat config file
   ln -fvhsn $DOTFILES_DIR/_configuration/bat $HOME/.config/bat
   ln -fvhs $DOTFILES_DIR/_configuration/fish_things/fish_plugins $HOME/.config/fish/fish_plugins
