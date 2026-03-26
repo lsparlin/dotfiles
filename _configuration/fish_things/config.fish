@@ -25,3 +25,11 @@ if not contains $_asdf_shims $PATH
     set -gx --prepend PATH $_asdf_shims
 end
 set --erase _asdf_shims
+
+# Added by Obsidian
+fish_add_path /Applications/Obsidian.app/Contents/MacOS
+export PATH="$HOME/.local/bin:$PATH"
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

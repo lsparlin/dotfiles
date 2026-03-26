@@ -1,4 +1,4 @@
 # Font
 theme = "dracula"
 font-size = 18
-font-family = MonoLisa
+font-family = "MonoLisa"
