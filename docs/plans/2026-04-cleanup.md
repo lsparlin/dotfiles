@@ -53,7 +53,7 @@ For each submodule: `git submodule deinit -f <path>` → `git rm -f <path>` → 
 - Device-specific paths (`/Users/lsparlin/.codeium/windsurf/bin`, z jump history)
 - Fish's own internal version marker (`__fish_initialized`)
 
-**Action:** Remove `_configuration/fish_things/fish_variables` from the repo and add it to `.gitignore`.
+**Action:** Remove `_configuration/fish/fish_variables` from the repo and add it to `.gitignore`.
 
 The `fish_plugins` file (already tracked) is the correct artifact for plugin management — no need for `fish_variables`.
 
@@ -76,7 +76,7 @@ set -U pure_check_for_new_release false
 
 ### 2c. Fix `config.fish` path setup
 
-**File:** `_configuration/fish_things/config.fish`
+**File:** `_configuration/fish/config.fish`
 
 Issues to fix:
 1. **Remove empty interactive block** (lines 1–3) — placeholder with no contents
@@ -128,7 +128,7 @@ Remove all references to deleted tools:
 
 Remaining links should cover:
 - Root dotfiles: `gitconfig`, `gitignore`, `tmux.conf`, `tool-versions`
-- `~/.config/` dirs: `fish` (via `fish_things/`), `helix`, `ghostty`, `bat` (if present)
+- `~/.config/` dirs: `fish` (via `fish/`), `helix`, `ghostty`, `bat` (if present)
 - Ensure `fish_variables` is **not** linked — it should be generated locally by Fish/Fisher
 
 ---

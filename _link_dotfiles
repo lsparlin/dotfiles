@@ -6,44 +6,45 @@ if [ "$1" = "live" ]; then
   DRY_RUN=false
 fi
 
-DOTFILES_DIR=$(realpath)
-UNDERSCORE_PATTERN="^_" #  to exclude files beginning with _(underscore)
+DOTFILES_DIR=$(realpath "$(dirname "$0")")
 
-# Files that should be linked to $HOME as dotfiles (excludes underscore-prefixed, README, docs, CLAUDE)
+# Root files to link as ~/.filename — explicit exclusions anchored to filename start
 function list_linkable_dotfiles {
-  ls -1 $DOTFILES_DIR |\
-    sed "/README/d" |\
-    sed "/CLAUDE/d" |\
-    sed "/docs/d" |\
-    sed -E "/$UNDERSCORE_PATTERN/d"
+  ls -1 "$DOTFILES_DIR" \
+    | grep -vE '^(README\.md|CLAUDE\.md|docs|scripts|tpm|_configuration|_link_dotfiles|\..*)'
+}
+
+# Link source → dest; prints intent in dry-run, executes in live mode
+link() {
+  if $DRY_RUN; then
+    echo "Would link $fg_bold[green]$2$reset_color -> $fg[blue]$1$reset_color"
+  else
+    ln -fvhsn "$1" "$2"
+  fi
 }
 
 if $DRY_RUN; then
   echo "$fg_bold[green]DRY RUN$reset_color"
   echo "_______"
-
-  list_linkable_dotfiles |\
-    xargs -I% echo "Would link $fg_bold[green]~/.%$reset_color -> $fg[blue]$DOTFILES_DIR/%$reset_color"
-
-  echo "Would link $fg_bold[green]~/.config/ghostty/ -> $fg[blue]$DOTFILES_DIR/_configuration/ghostty/$reset_color"
-  echo "Would link $fg_bold[green]~/.config/helix/ -> $fg[blue]$DOTFILES_DIR/_configuration/helix/$reset_color"
-  echo "Would link $fg_bold[green]~/.config/bat -> $fg[blue]$DOTFILES_DIR/_configuration/bat/$reset_color"
-  echo "Would link $fg_bold[green]~/.config/fish/fish_plugins -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/fish_plugins$reset_color"
-  echo "Would link $fg_bold[green]~/.config/fish/config.fish -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/config.fish$reset_color"
-  ls -1 $DOTFILES_DIR/_configuration/fish_things/aliases |\
-    xargs -I% echo "Would link $fg_bold[green]~/.config/fish/functions/% -> $fg[blue]$DOTFILES_DIR/_configuration/fish_things/aliases/%$reset_color"
-
-  echo "_______"
-
-else
-  list_linkable_dotfiles | xargs -I% ln -fvhs $DOTFILES_DIR/% $HOME/.%
-
-  # Symlink app-specific configs (~/.config/)
-  ln -fvhsn $DOTFILES_DIR/_configuration/ghostty $HOME/.config/ghostty
-  ln -fvhsn $DOTFILES_DIR/_configuration/helix $HOME/.config/helix
-  ln -fvhsn $DOTFILES_DIR/_configuration/bat $HOME/.config/bat
-  ln -fvhs $DOTFILES_DIR/_configuration/fish_things/fish_plugins $HOME/.config/fish/fish_plugins
-  ln -fvhs $DOTFILES_DIR/_configuration/fish_things/config.fish $HOME/.config/fish/config.fish
-  ls -1 $DOTFILES_DIR/_configuration/fish_things/aliases |\
-    xargs -I% ln -fvhs $DOTFILES_DIR/_configuration/fish_things/aliases/% $HOME/.config/fish/functions/%
 fi
+
+# Root dotfiles → ~/.filename
+if $DRY_RUN; then
+  list_linkable_dotfiles \
+    | xargs -I% echo "Would link $fg_bold[green]~/.%$reset_color -> $fg[blue]$DOTFILES_DIR/%$reset_color"
+else
+  list_linkable_dotfiles | xargs -I% ln -fvhs "$DOTFILES_DIR/%" "$HOME/.%"
+fi
+
+# App configs → ~/.config/
+link "$DOTFILES_DIR/_configuration/ghostty"              "$HOME/.config/ghostty"
+link "$DOTFILES_DIR/_configuration/helix"                "$HOME/.config/helix"
+link "$DOTFILES_DIR/_configuration/bat"                  "$HOME/.config/bat"
+link "$DOTFILES_DIR/_configuration/fish/fish_plugins"    "$HOME/.config/fish/fish_plugins"
+link "$DOTFILES_DIR/_configuration/fish/config.fish"     "$HOME/.config/fish/config.fish"
+ls -1 "$DOTFILES_DIR/_configuration/fish/aliases" \
+  | while read fn; do
+      link "$DOTFILES_DIR/_configuration/fish/aliases/$fn" "$HOME/.config/fish/functions/$fn"
+    done
+
+if $DRY_RUN; then echo "_______"; fi

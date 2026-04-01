@@ -39,7 +39,7 @@ Links are created for:
 
 ### Fish Shell
 - Plugins managed via `fish_plugins` file (Fisher)
-- Custom functions/aliases in `_configuration/fish_things/aliases/`
+- Custom functions/aliases in `_configuration/fish/aliases/`
 - ASDF version manager integration configured in `config.fish`
 - Pure prompt preferences set via `set -U` in `config.fish`
 - `fish_variables` is NOT tracked — it is Fish's local runtime state

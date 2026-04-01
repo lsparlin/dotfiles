@@ -29,7 +29,7 @@ Links are created for:
 
 | Tool | Config location |
 |------|----------------|
-| Fish shell | `_configuration/fish_things/` |
+| Fish shell | `_configuration/fish/` |
 | Helix editor | `_configuration/helix/` |
 | Ghostty terminal | `_configuration/ghostty/` |
 | tmux | `tmux.conf` |
@@ -38,8 +38,14 @@ Links are created for:
 
 ## Other helpers
 
+### Install Fisher (Fish plugin manager)
+Run once on a new machine after linking dotfiles — installs plugins from `fish_plugins`:
+```bash
+./scripts/install_fisher
+```
+
 ### Obsidian convenience symlink
 If using Obsidian with iCloud storage, symlinks the long iCloud path to `~/icloud-obsidian`:
 ```bash
-./_configuration/link_icloud_obsidian
+./scripts/link_icloud_drive_obsidian
 ```

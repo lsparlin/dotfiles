@@ -1,6 +1,7 @@
 backup/
 
-_configuration/fish_things/fish_variables
+_configuration/fish/fish_variables
+.claude/
 
 Brewfile.lock.json
 .DS_Store
