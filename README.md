@@ -13,28 +13,28 @@ git submodule update --recursive --init
 
 Dry run (shows what would be linked):
 ```bash
-./_link_dotfiles
+./scripts/link_dotfiles
 ```
 
 Create symlinks:
 ```bash
-./_link_dotfiles live
+./scripts/link_dotfiles live
 ```
 
 Links are created for:
-- Root dotfiles (e.g., `gitconfig` → `~/.gitconfig`)
-- Config directories in `~/.config/` (fish, helix, ghostty, bat)
+- `HOME/` → `~/.<filename>` (e.g., `HOME/gitconfig` → `~/.gitconfig`)
+- `HOME_config/<app>/` → `~/.config/<app>/` (fish, helix, ghostty, bat)
 
 ## Tools
 
 | Tool | Config location |
 |------|----------------|
-| Fish shell | `_configuration/fish/` |
-| Helix editor | `_configuration/helix/` |
-| Ghostty terminal | `_configuration/ghostty/` |
-| tmux | `tmux.conf` |
-| git | `gitconfig` |
-| ASDF versions | `tool-versions` |
+| Fish shell | `HOME_config/fish/` |
+| Helix editor | `HOME_config/helix/` |
+| Ghostty terminal | `HOME_config/ghostty/` |
+| tmux | `HOME/tmux.conf` |
+| git | `HOME/gitconfig` |
+| ASDF versions | `HOME/tool-versions` |
 
 ## Other helpers
 
