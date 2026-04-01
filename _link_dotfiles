@@ -1,5 +1,9 @@
-#!/bin/zsh
-autoload colors; colors
+#!/usr/bin/env bash
+
+BOLD_GREEN=$'\033[1;32m'
+BLUE=$'\033[0;34m'
+GRAY=$'\033[0;90m'
+RESET=$'\033[0m'
 
 DRY_RUN=true
 if [ "$1" = "live" ]; then
@@ -9,7 +13,7 @@ fi
 DOTFILES_DIR=$(realpath "$(dirname "$0")")
 
 # Root files to link as ~/.filename — explicit exclusions anchored to filename start
-function list_linkable_dotfiles {
+list_linkable_dotfiles() {
   ls -1 "$DOTFILES_DIR" \
     | grep -vE '^(README\.md|CLAUDE\.md|docs|scripts|tpm|_configuration|_link_dotfiles|\..*)'
 }
@@ -17,21 +21,24 @@ function list_linkable_dotfiles {
 # Link source → dest; prints intent in dry-run, executes in live mode
 link() {
   if $DRY_RUN; then
-    echo "Would link $fg_bold[green]$2$reset_color -> $fg[blue]$1$reset_color"
+    echo "Would link ${BOLD_GREEN}$2${RESET} -> ${BLUE}$1${RESET}"
+    echo "  ${GRAY}→ ln -fvhsn $1 $2${RESET}"
   else
     ln -fvhsn "$1" "$2"
   fi
 }
 
 if $DRY_RUN; then
-  echo "$fg_bold[green]DRY RUN$reset_color"
+  echo "${BOLD_GREEN}DRY RUN${RESET}"
   echo "_______"
 fi
 
 # Root dotfiles → ~/.filename
 if $DRY_RUN; then
   list_linkable_dotfiles \
-    | xargs -I% echo "Would link $fg_bold[green]~/.%$reset_color -> $fg[blue]$DOTFILES_DIR/%$reset_color"
+    | while read f; do
+        link "$DOTFILES_DIR/$f" "$HOME/.$f"
+      done
 else
   list_linkable_dotfiles | xargs -I% ln -fvhs "$DOTFILES_DIR/%" "$HOME/.%"
 fi
