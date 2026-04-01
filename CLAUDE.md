@@ -8,11 +8,12 @@ This is a personal dotfiles repository for macOS development environment setup. 
 
 ## Structure
 
-- **Root level**: Dotfiles that get symlinked to `~/.<filename>` (e.g., `gitconfig`, `tmux.conf`)
-- **`_configuration/`**: App-specific configs in `~/.config/` (fish, helix, ghostty, bat)
+- **`HOME/`**: Dotfiles that get symlinked to `~/.<filename>` (e.g., `gitconfig`, `tmux.conf`)
+- **`HOME_config/`**: App-specific configs in `~/.config/` (fish, helix, ghostty, bat)
 - **`scripts/link_dotfiles`**: Script to create symlinks from this repo to `$HOME`
 - **`tpm/`**: Git submodule for Tmux Plugin Manager
 - **`docs/`**: ADRs and plans documenting tool decisions and one-off tasks
+- **`scripts/`**: One-time setup helpers (install_homebrew, install_fisher, etc.)
 
 ## Common Commands
 
@@ -32,14 +33,14 @@ git submodule update --recursive --init
 ```
 
 Links are created for:
-- Root files (e.g., `gitconfig` → `~/.gitconfig`)
-- Config directories in `~/.config/`
+- `HOME/*` → `~/.<filename>` (e.g., `HOME/gitconfig` → `~/.gitconfig`)
+- `HOME_config/*` → `~/.config/<appname>/` (e.g., `HOME_config/fish/` → `~/.config/fish/`)
 
 ## Tool-Specific Notes
 
 ### Fish Shell
 - Plugins managed via `fish_plugins` file (Fisher)
-- Custom functions/aliases in `_configuration/fish/aliases/`
+- Custom functions/aliases in `HOME_config/fish/aliases/`
 - ASDF version manager integration configured in `config.fish`
 - Pure prompt preferences set via `set -U` in `config.fish`
 - `fish_variables` is NOT tracked — it is Fish's local runtime state

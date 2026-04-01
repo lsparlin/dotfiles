@@ -4,17 +4,40 @@ Personal CLI environment setup for macOS — Fish shell, Helix editor, Ghostty t
 
 ## Initial Setup
 
-### Install Homebrew and dependencies
-```bash
-./scripts/install_homebrew
-```
+Complete bootstrap sequence for a fresh macOS machine:
 
-### Pull submodules
 ```bash
+# 1. Install Command Line Tools (if needed)
+xcode-select --install
+
+# 2. Clone this repository
+git clone https://github.com/YOUR_USERNAME/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+
+# 3. Install Homebrew and core dependencies
+./scripts/install_homebrew    # Also installs tools from Brewfile
+
+# 4. Make Fish your default shell
+chsh -s $(which fish)
+
+# 5. Link dotfiles
+./scripts/link_dotfiles live
+
+# 6. Install Fish plugins
+./scripts/install_fisher
+
+# 7. Pull tmux plugin manager submodules
 git submodule update --recursive --init
+
+# 8. Install ASDF language versions
+asdf install
 ```
 
-### Link dotfiles
+After opening a new tmux session, press `prefix + I` (capital i) to install tmux plugins.
+
+---
+
+### Quick commands for existing machines
 
 Dry run (shows what would be linked):
 ```bash

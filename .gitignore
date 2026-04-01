@@ -1,6 +1,5 @@
 backup/
 
-_configuration/fish/fish_variables
 .claude/
 
 Brewfile.lock.json
