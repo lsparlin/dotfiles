@@ -1,4 +1,4 @@
+# Always prompt before deletion - safety measure to prevent accidental rm
 function rm
-  echo "using custom rm fish script"
   command rm -i $argv
 end
