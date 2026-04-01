@@ -1,7 +1,7 @@
 # 4. Configuration Directory Contains Only Symlink Targets
 
 Date: 2026-04-01
-Status: Accepted
+Status: Superseded by 0006
 
 ## Context
 
