@@ -10,7 +10,7 @@ This is a personal dotfiles repository for macOS development environment setup. 
 
 - **Root level**: Dotfiles that get symlinked to `~/.<filename>` (e.g., `gitconfig`, `tmux.conf`)
 - **`_configuration/`**: App-specific configs in `~/.config/` (fish, helix, ghostty, bat)
-- **`_link_dotfiles`**: Script to create symlinks from this repo to `$HOME`
+- **`scripts/link_dotfiles`**: Script to create symlinks from this repo to `$HOME`
 - **`tpm/`**: Git submodule for Tmux Plugin Manager
 - **`docs/`**: ADRs and plans documenting tool decisions and one-off tasks
 
@@ -25,10 +25,10 @@ git submodule update --recursive --init
 ### Linking Dotfiles
 ```bash
 # Dry run - see what would be linked
-./_link_dotfiles
+./scripts/link_dotfiles
 
 # Actually create symlinks
-./_link_dotfiles live
+./scripts/link_dotfiles live
 ```
 
 Links are created for:

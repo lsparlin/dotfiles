@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+DOTFILES_DIR=$(realpath "$(dirname "$0")/..")
+TEST_HOME=$(mktemp -d)
+
+echo "Test HOME: $TEST_HOME"
+echo "_______"
+
+HOME=$TEST_HOME "$DOTFILES_DIR/scripts/link_dotfiles" live
+
+echo "_______"
+echo "Root:"
+ls -la "$TEST_HOME"
+echo ""
+echo ".config:"
+ls -la "$TEST_HOME/.config"
+echo ""
+echo ".config/fish:"
+ls -la "$TEST_HOME/.config/fish"
+
+rm -rf "$TEST_HOME"

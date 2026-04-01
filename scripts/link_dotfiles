@@ -10,12 +10,12 @@ if [ "$1" = "live" ]; then
   DRY_RUN=false
 fi
 
-DOTFILES_DIR=$(realpath "$(dirname "$0")")
+DOTFILES_DIR=$(realpath "$(dirname "$0")/..")
 
 # Root files to link as ~/.filename — explicit exclusions anchored to filename start
 list_linkable_dotfiles() {
   ls -1 "$DOTFILES_DIR" \
-    | grep -vE '^(README\.md|CLAUDE\.md|docs|scripts|tpm|_configuration|_link_dotfiles|\..*)'
+    | grep -vE '^(README\.md|CLAUDE\.md|docs|scripts|tpm|_configuration|\..*)'
 }
 
 # Link source → dest; prints intent in dry-run, executes in live mode
