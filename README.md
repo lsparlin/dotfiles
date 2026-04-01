@@ -4,6 +4,11 @@ Personal CLI environment setup for macOS — Fish shell, Helix editor, Ghostty t
 
 ## Initial Setup
 
+### Install Homebrew and dependencies
+```bash
+./scripts/install_homebrew
+```
+
 ### Pull submodules
 ```bash
 git submodule update --recursive --init

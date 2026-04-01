@@ -1,5 +1,9 @@
 #!/bin/bash
 #
-# Command copied from https://brew.sh
+# Install Homebrew and dependencies from Brewfile
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install dependencies from Brewfile (located in repo root)
+DOTFILES_DIR="$(realpath "$(dirname "$0")/..")"
+brew bundle --file="$DOTFILES_DIR/Brewfile"
