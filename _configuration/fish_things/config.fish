@@ -1,35 +1,25 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
-
-# if fzf is installed 
-# setup fzf keybindings (per homebrew instructions)
-which fzf >/dev/null && fzf --fish | source || echo "INFO: fzf not installed"
-
-# This does not seem to work in all environments
-# source /usr/local/opt/asdf/libexec/asdf.fish
-
-# ASDF gets deprioritized by some environments like tmux
-# Also this seems to replace the commented out asdf setup script above
-# fish_add_path -m $HOME/.asdf/shims
-# ASDF configuration code
+# ASDF shims — prepend to ensure managed tool versions take precedence
 if test -z $asdf_data_dir
     set _asdf_shims "$HOME/.asdf/shims"
 else
     set _asdf_shims "$asdf_data_dir/shims"
 end
-
-# Do not use fish_add_path (added in Fish 3.2) because it
-# potentially changes the order of items in PATH
 if not contains $_asdf_shims $PATH
     set -gx --prepend PATH $_asdf_shims
 end
 set --erase _asdf_shims
 
-# Added by Obsidian
-fish_add_path /Applications/Obsidian.app/Contents/MacOS
-export PATH="$HOME/.local/bin:$PATH"
+# fzf keybindings
+which fzf >/dev/null && fzf --fish | source
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
+fish_add_path $BUN_INSTALL/bin
+
+# Pure prompt preferences
+set -U pure_symbol_prompt "🍇|>"
+set -U pure_symbol_reverse_prompt "🍇<|"
+set -U pure_reverse_prompt_symbol_in_vimode true
+set -U pure_enable_aws_profile true
+set -U pure_enable_k8s false
+set -U pure_check_for_new_release false

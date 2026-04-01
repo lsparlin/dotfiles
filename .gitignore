@@ -1,13 +1,6 @@
 backup/
-vim/autoload
-vim/bundle
-vim/plugged
 
-vim/autoload/*
-vim/bundle/*
-vim/plugged/*
-
-_configuration/nvim/plugin/*
+_configuration/fish_things/fish_variables
 
 Brewfile.lock.json
 .DS_Store
