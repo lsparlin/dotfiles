@@ -43,6 +43,8 @@ else
   list_linkable_dotfiles | xargs -I% ln -fvhs "$DOTFILES_DIR/%" "$HOME/.%"
 fi
 
+mkdir -p "$HOME/.config"
+
 # App configs → ~/.config/<name> (implicit: every dir in _configuration/ except fish)
 # fish is linked per-file because ~/.config/fish/ is a living directory that
 # Fish and Fisher write into (conf.d/, functions/, completions/, fish_variables)
@@ -53,6 +55,7 @@ ls -1 "$DOTFILES_DIR/_configuration" \
     done
 
 # Fish: explicit per-file links
+mkdir -p "$HOME/.config/fish/functions"
 link "$DOTFILES_DIR/_configuration/fish/config.fish"     "$HOME/.config/fish/config.fish"
 link "$DOTFILES_DIR/_configuration/fish/fish_plugins"    "$HOME/.config/fish/fish_plugins"
 ls -1 "$DOTFILES_DIR/_configuration/fish/aliases" \
