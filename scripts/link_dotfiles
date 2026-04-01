@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+BOLD_GREEN=$'\033[1;32m'
+BLUE=$'\033[0;34m'
+GRAY=$'\033[0;90m'
+RESET=$'\033[0m'
+
+DRY_RUN=true
+if [ "$1" = "live" ]; then
+  DRY_RUN=false
+fi
+
+DOTFILES_DIR=$(realpath "$(dirname "$0")/..")
+
+# Root files to link as ~/.filename
+list_linkable_dotfiles() {
+  ls -1 "$DOTFILES_DIR/HOME"
+}
+
+# Link source → dest; prints intent in dry-run, executes in live mode
+link() {
+  if $DRY_RUN; then
+    echo "Would link ${BOLD_GREEN}$2${RESET} -> ${BLUE}$1${RESET}"
+    echo "  ${GRAY}→ ln -fvhsn $1 $2${RESET}"
+  else
+    ln -fvhsn "$1" "$2"
+  fi
+}
+
+if $DRY_RUN; then
+  echo "${BOLD_GREEN}DRY RUN${RESET}"
+  echo "_______"
+fi
+
+# Root dotfiles → ~/.filename
+if $DRY_RUN; then
+  list_linkable_dotfiles \
+    | while read f; do
+        link "$DOTFILES_DIR/HOME/$f" "$HOME/.$f"
+      done
+else
+  list_linkable_dotfiles | xargs -I% ln -fvhs "$DOTFILES_DIR/HOME/%" "$HOME/.%"
+fi
+
+mkdir -p "$HOME/.config"
+
+# App configs → ~/.config/<name> (implicit: every dir in HOME_config/ except fish)
+# fish is linked per-file because ~/.config/fish/ is a living directory that
+# Fish and Fisher write into (conf.d/, functions/, completions/, fish_variables)
+ls -1 "$DOTFILES_DIR/HOME_config" \
+  | grep -v '^fish$' \
+  | while read dir; do
+      link "$DOTFILES_DIR/HOME_config/$dir" "$HOME/.config/$dir"
+    done
+
+# Fish: explicit per-file links
+mkdir -p "$HOME/.config/fish/functions"
+link "$DOTFILES_DIR/HOME_config/fish/config.fish"     "$HOME/.config/fish/config.fish"
+link "$DOTFILES_DIR/HOME_config/fish/fish_plugins"    "$HOME/.config/fish/fish_plugins"
+ls -1 "$DOTFILES_DIR/HOME_config/fish/aliases" \
+  | while read fn; do
+      link "$DOTFILES_DIR/HOME_config/fish/aliases/$fn" "$HOME/.config/fish/functions/$fn"
+    done
+
+if $DRY_RUN; then echo "_______"; fi

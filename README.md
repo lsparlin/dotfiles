@@ -1,72 +1,51 @@
-# dotfiles for my personal CLI setup
-Setup Local cli environment with zsh, ohmyzsh, vim plugins, etc.
+# dotfiles
 
-## Dependencies (git submodules)
-Pull submodule deppendencies and plugins
+Personal CLI environment setup for macOS — Fish shell, Helix editor, Ghostty terminal.
+
+## Initial Setup
+
+### Pull submodules
 ```bash
-cd [PATH_TO_DOTFILES]
 git submodule update --recursive --init
 ```
 
-## Homebrew
+### Link dotfiles
 
-### Install
+Dry run (shows what would be linked):
 ```bash
-[PATH_TO_DOTFILES]/_configuration/install_homebrew
-```
-OR install here [Homebrew](https://brew.sh)
-
-### Brewfile
-use homebrew's bundling feature to bring over my commonly used packages,
-```bash
-cd [PATH_TO_DOTFILES]
-brew bundle
+./scripts/link_dotfiles
 ```
 
-## Dotfiles
-Automatically link:
-- `.asdfrc`
-- `.bashrc`
-- `.gitconfig`
-- `.gitignore`
-- `.oh-my-zsh`
-- `.tmux.conf`
-- `.tmuxinator`
-- `.tool-versions`
-- `.vim`
-- `.vimrc`
-- `.zshrc`
-
-### Dry run
-Running the script with no args will dry-run and print out symlinks that would be created.
+Create symlinks:
 ```bash
-[PATH_TO_DOTFILES]/_link_dotfiles
+./scripts/link_dotfiles live
 ```
 
-### Symlink dotfiles into `$HOME` directory
-Run with argument `live` to create symlinks
-```bash
-[PATH_TO_DOTFILES]./_link_dotfiles live
-```
+Links are created for:
+- `HOME/` → `~/.<filename>` (e.g., `HOME/gitconfig` → `~/.gitconfig`)
+- `HOME_config/<app>/` → `~/.config/<app>/` (fish, helix, ghostty, bat)
+
+## Tools
+
+| Tool | Config location |
+|------|----------------|
+| Fish shell | `HOME_config/fish/` |
+| Helix editor | `HOME_config/helix/` |
+| Ghostty terminal | `HOME_config/ghostty/` |
+| tmux | `HOME/tmux.conf` |
+| git | `HOME/gitconfig` |
+| ASDF versions | `HOME/tool-versions` |
 
 ## Other helpers
 
-### Tell MacOS to save screenshots in ~/Downlods
+### Install Fisher (Fish plugin manager)
+Run once on a new machine after linking dotfiles — installs plugins from `fish_plugins`:
 ```bash
-[PATH_TO_DOTFILES]/_configuration/init_screenshot_dir
-```
-
-### Italics for terminal
-```bash
-[PATH_TO_DOTFILES]/_configuration/install_italic_terms
-
-# Remove this line from .tmux.conf.local if not installing italics
-# set -g default-terminal 'tmux-256color-italic'
+./scripts/install_fisher
 ```
 
 ### Obsidian convenience symlink
-If using Obsidian with iCloud storage, this will symlink that path (which is long) to `~/icloud-obsidian` for easier access from CLI
+If using Obsidian with iCloud storage, symlinks the long iCloud path to `~/icloud-obsidian`:
 ```bash
-[PATH_TO_DOTFILES]/_configuration/link_icloud_obsidian
+./scripts/link_icloud_drive_obsidian
 ```
-
