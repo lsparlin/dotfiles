@@ -36,12 +36,18 @@ else
   list_linkable_dotfiles | xargs -I% ln -fvhs "$DOTFILES_DIR/%" "$HOME/.%"
 fi
 
-# App configs → ~/.config/
-link "$DOTFILES_DIR/_configuration/ghostty"              "$HOME/.config/ghostty"
-link "$DOTFILES_DIR/_configuration/helix"                "$HOME/.config/helix"
-link "$DOTFILES_DIR/_configuration/bat"                  "$HOME/.config/bat"
-link "$DOTFILES_DIR/_configuration/fish/fish_plugins"    "$HOME/.config/fish/fish_plugins"
+# App configs → ~/.config/<name> (implicit: every dir in _configuration/ except fish)
+# fish is linked per-file because ~/.config/fish/ is a living directory that
+# Fish and Fisher write into (conf.d/, functions/, completions/, fish_variables)
+ls -1 "$DOTFILES_DIR/_configuration" \
+  | grep -v '^fish$' \
+  | while read dir; do
+      link "$DOTFILES_DIR/_configuration/$dir" "$HOME/.config/$dir"
+    done
+
+# Fish: explicit per-file links
 link "$DOTFILES_DIR/_configuration/fish/config.fish"     "$HOME/.config/fish/config.fish"
+link "$DOTFILES_DIR/_configuration/fish/fish_plugins"    "$HOME/.config/fish/fish_plugins"
 ls -1 "$DOTFILES_DIR/_configuration/fish/aliases" \
   | while read fn; do
       link "$DOTFILES_DIR/_configuration/fish/aliases/$fn" "$HOME/.config/fish/functions/$fn"
