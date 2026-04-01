@@ -12,10 +12,9 @@ fi
 
 DOTFILES_DIR=$(realpath "$(dirname "$0")/..")
 
-# Root files to link as ~/.filename — explicit exclusions anchored to filename start
+# Root files to link as ~/.filename
 list_linkable_dotfiles() {
-  ls -1 "$DOTFILES_DIR" \
-    | grep -vE '^(README\.md|CLAUDE\.md|docs|scripts|tpm|_configuration|\..*)'
+  ls -1 "$DOTFILES_DIR/HOME"
 }
 
 # Link source → dest; prints intent in dry-run, executes in live mode
@@ -37,30 +36,30 @@ fi
 if $DRY_RUN; then
   list_linkable_dotfiles \
     | while read f; do
-        link "$DOTFILES_DIR/$f" "$HOME/.$f"
+        link "$DOTFILES_DIR/HOME/$f" "$HOME/.$f"
       done
 else
-  list_linkable_dotfiles | xargs -I% ln -fvhs "$DOTFILES_DIR/%" "$HOME/.%"
+  list_linkable_dotfiles | xargs -I% ln -fvhs "$DOTFILES_DIR/HOME/%" "$HOME/.%"
 fi
 
 mkdir -p "$HOME/.config"
 
-# App configs → ~/.config/<name> (implicit: every dir in _configuration/ except fish)
+# App configs → ~/.config/<name> (implicit: every dir in HOME_config/ except fish)
 # fish is linked per-file because ~/.config/fish/ is a living directory that
 # Fish and Fisher write into (conf.d/, functions/, completions/, fish_variables)
-ls -1 "$DOTFILES_DIR/_configuration" \
+ls -1 "$DOTFILES_DIR/HOME_config" \
   | grep -v '^fish$' \
   | while read dir; do
-      link "$DOTFILES_DIR/_configuration/$dir" "$HOME/.config/$dir"
+      link "$DOTFILES_DIR/HOME_config/$dir" "$HOME/.config/$dir"
     done
 
 # Fish: explicit per-file links
 mkdir -p "$HOME/.config/fish/functions"
-link "$DOTFILES_DIR/_configuration/fish/config.fish"     "$HOME/.config/fish/config.fish"
-link "$DOTFILES_DIR/_configuration/fish/fish_plugins"    "$HOME/.config/fish/fish_plugins"
-ls -1 "$DOTFILES_DIR/_configuration/fish/aliases" \
+link "$DOTFILES_DIR/HOME_config/fish/config.fish"     "$HOME/.config/fish/config.fish"
+link "$DOTFILES_DIR/HOME_config/fish/fish_plugins"    "$HOME/.config/fish/fish_plugins"
+ls -1 "$DOTFILES_DIR/HOME_config/fish/aliases" \
   | while read fn; do
-      link "$DOTFILES_DIR/_configuration/fish/aliases/$fn" "$HOME/.config/fish/functions/$fn"
+      link "$DOTFILES_DIR/HOME_config/fish/aliases/$fn" "$HOME/.config/fish/functions/$fn"
     done
 
 if $DRY_RUN; then echo "_______"; fi
