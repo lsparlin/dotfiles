@@ -5,3 +5,4 @@ _configuration/fish/fish_variables
 
 Brewfile.lock.json
 .DS_Store
+HOME_config/fish/fish_variables
