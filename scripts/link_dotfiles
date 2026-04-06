@@ -51,7 +51,7 @@ mkdir -p "$HOME/.config"
 # fish is linked per-file because ~/.config/fish/ is a living directory that
 # Fish and Fisher write into (conf.d/, functions/, completions/, fish_variables)
 ls -1 "$DOTFILES_DIR/HOME_config" \
-  | grep -v '^fish$' \
+  | grep -v -e '^fish$' -e '^claude$' \
   | while read dir; do
       link "$DOTFILES_DIR/HOME_config/$dir" "$HOME/.config/$dir"
     done
@@ -64,5 +64,11 @@ ls -1 "$DOTFILES_DIR/HOME_config/fish/aliases" \
   | while read fn; do
       link "$DOTFILES_DIR/HOME_config/fish/aliases/$fn" "$HOME/.config/fish/functions/$fn"
     done
+
+# Claude Code: explicit per-file links
+# ~/.claude/ is a living directory that Claude Code writes into,
+# so we link specific files rather than the whole directory.
+mkdir -p "$HOME/.claude"
+link "$DOTFILES_DIR/HOME_config/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 
 if $DRY_RUN; then echo "_______"; fi

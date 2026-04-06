@@ -17,5 +17,8 @@ ls -la "$TEST_HOME/.config"
 echo ""
 echo ".config/fish:"
 ls -la "$TEST_HOME/.config/fish"
+echo ""
+echo ".claude:"
+ls -la "$TEST_HOME/.claude"
 
 rm -rf "$TEST_HOME"
