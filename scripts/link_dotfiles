@@ -42,6 +42,9 @@ else
   list_linkable_dotfiles | xargs -I% ln -fvhs "$DOTFILES_DIR/HOME/%" "$HOME/.%"
 fi
 
+# tpm (tmux plugin manager) → ~/.tpm
+link "$DOTFILES_DIR/tpm" "$HOME/.tpm"
+
 mkdir -p "$HOME/.config"
 
 # App configs → ~/.config/<name> (implicit: every dir in HOME_config/ except fish)

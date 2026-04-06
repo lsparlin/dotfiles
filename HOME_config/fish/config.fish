@@ -16,6 +16,9 @@ which fzf >/dev/null && fzf --fish | source
 set --export BUN_INSTALL "$HOME/.bun"
 fish_add_path $BUN_INSTALL/bin
 
+# Added for Claude Code CLI
+fish_add_path "$HOME/.local/bin"
+
 # Pure prompt preferences
 set -U pure_symbol_prompt "🍇|>"
 set -U pure_symbol_reverse_prompt "🍇<|"
