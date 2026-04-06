@@ -9,6 +9,9 @@ if not contains $_asdf_shims $PATH
 end
 set --erase _asdf_shims
 
+# My preferences
+set --export EDITOR hx
+
 # fzf keybindings
 which fzf >/dev/null && fzf --fish | source
 
