@@ -1,0 +1,8 @@
+[settings]
+
+[settings.ruby]
+compile = false
+
+[tools]
+node = "25.8.2"
+ruby = "3.3.7"

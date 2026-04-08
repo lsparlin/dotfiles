@@ -23,6 +23,11 @@ link() {
     echo "Would link ${BOLD_GREEN}$2${RESET} -> ${BLUE}$1${RESET}"
     echo "  ${GRAY}→ ln -fvhsn $1 $2${RESET}"
   else
+    # Remove existing real directory so ln replaces it with a symlink
+    # rather than placing the symlink inside it
+    if [ -d "$2" ] && [ ! -L "$2" ]; then
+      rm -rf "$2"
+    fi
     ln -fvhsn "$1" "$2"
   fi
 }

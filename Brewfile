@@ -24,4 +24,4 @@ brew "git" # keep git up-to-date through homebrew
 brew "diff-so-fancy"
 
 # Version manager
-brew "asdf"
+brew "mise"
