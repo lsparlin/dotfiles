@@ -1,15 +1,5 @@
-# ASDF shims — prepend to ensure managed tool versions take precedence
-if test -z $asdf_data_dir
-    set _asdf_shims "$HOME/.asdf/shims"
-else
-    set _asdf_shims "$asdf_data_dir/shims"
-end
-if not contains $_asdf_shims $PATH
-    set -gx --prepend PATH $_asdf_shims
-end
-set --erase _asdf_shims
-
 # My preferences
+fish_vi_key_bindings
 set --export EDITOR hx
 
 # fzf keybindings
