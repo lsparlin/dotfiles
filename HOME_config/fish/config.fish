@@ -19,3 +19,8 @@ set -U pure_reverse_prompt_symbol_in_vimode true
 set -U pure_enable_aws_profile true
 set -U pure_enable_k8s false
 set -U pure_check_for_new_release false
+
+# Machine-specific config (not tracked in git)
+if test -f $HOME/.local.fish
+    source $HOME/.local.fish
+end
