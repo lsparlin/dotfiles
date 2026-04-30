@@ -1,5 +1,8 @@
 theme = "dracula"
 
+[editor.soft-wrap]
+enable = true
+
 [keys.normal]
 X = "extend_line_above" # do the opposite of "x"
 
