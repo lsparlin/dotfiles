@@ -1,5 +1,6 @@
 # My preferences
 fish_vi_key_bindings
+fish_config theme choose dracula
 set --export EDITOR hx
 
 # fzf keybindings
